@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "62qQOCaRprDgAcBZOFGIi"
+uri = "file://artifacts/mockup-sandbox/public/images/architecture-data.png"
+type = "image"
+title = "Abstract data architecture and flows"
+
+[[generated]]
+id = "8yHbPHkwYPLTfegjcOQSS"
+uri = "file://artifacts/mockup-sandbox/public/images/ai-banking.png"
+type = "image"
+title = "AI banking data concepts"
