@@ -147,17 +147,17 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Avatar */}
+            {/* Profile Photo */}
             <div className="w-56 h-56 md:w-72 md:h-72 shrink-0">
-              <div className="relative w-full h-full rounded-full border-2 border-primary/30 bg-secondary/60 shadow-2xl overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-7xl md:text-8xl font-bold text-muted-foreground/25 select-none">
-                    SR
-                  </span>
-                </div>
+              <div className="relative w-full h-full rounded-full border-2 border-primary/40 shadow-2xl overflow-hidden group">
+                <img
+                  src="/images/sunil.jpg"
+                  alt="Sunil Ravva"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-full" />
                 {/* Rotating ring */}
-                <div className="absolute -inset-1 rounded-full border border-primary/20 animate-spin [animation-duration:12s]" />
+                <div className="absolute -inset-1 rounded-full border border-primary/25 animate-spin [animation-duration:12s] pointer-events-none" />
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function LandingPage() {
             {[
               { value: "19+", label: "Years Experience" },
               { value: "8,000+", label: "LinkedIn Followers" },
-              { value: "1,000+", label: "Newsletter Subscribers" },
+              { value: "1,500+", label: "Newsletter Subscribers" },
               { value: "70+", label: "Architects Trained" },
             ].map((stat, i) => (
               <div
@@ -457,19 +457,25 @@ export default function LandingPage() {
               Let&apos;s Build Something That Matters.
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join 1,000+ product leaders and fintech innovators getting weekly
+              Join 1,500+ product leaders and fintech innovators getting weekly
               insights on building scalable, human-centered financial products.
             </p>
 
             <form
               className="max-w-md mx-auto flex flex-col sm:flex-row gap-3"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.open(
+                  "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=sunilravva",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              }}
             >
               <Input
                 type="email"
                 placeholder="name@example.com"
                 className="h-12 bg-background/50 border-border/60 text-base rounded-full px-6 focus-visible:ring-primary/50 flex-1"
-                required
               />
               <Button
                 type="submit"
@@ -479,7 +485,7 @@ export default function LandingPage() {
               </Button>
             </form>
             <p className="text-sm text-muted-foreground">
-              Subscribe to &quot;Build Better. Think Broader.&quot; — weekly
+              Subscribe to &quot;Build Better. Think Broader.&quot; on LinkedIn — weekly
               insights, zero spam.
             </p>
 
