@@ -132,7 +132,7 @@ export default function LandingPage() {
                   </Button>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/sunilravva"
+                  href="https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -368,12 +368,16 @@ export default function LandingPage() {
                 building better financial systems.
               </p>
             </div>
-            <a href="#cta">
+            <a
+              href="https://www.linkedin.com/in/sunilravva/recent-activity/all/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant="ghost"
                 className="gap-2 text-primary hover:text-primary hover:bg-primary/10 group shrink-0"
               >
-                Subscribe for more{" "}
+                See more featured posts{" "}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
@@ -383,30 +387,35 @@ export default function LandingPage() {
             {[
               {
                 img: "/images/architecture-data.png",
-                badge: "Featured Article",
+                badge: "Featured Post",
                 title: "Why Product Owners Must Think Like Architects",
-                read: "5 min read",
+                read: "LinkedIn Post",
                 delay: "",
+                url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
               },
               {
                 img: "/images/ai-banking.png",
-                badge: "Newsletter",
-                title: "Building AI-Ready Data Products in Banking",
-                read: "7 min read",
+                badge: "Article",
+                title: "The Award Belongs to Her",
+                read: "LinkedIn Article",
                 delay: "delay-1",
+                url: "https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/",
               },
               {
                 img: null,
-                badge: "Case Study",
+                badge: "Featured Post",
                 title:
                   "From Financial Crime Risk to Innovation: My 7-Year HSBC Journey",
-                read: "10 min read",
+                read: "LinkedIn Post",
                 delay: "delay-2",
+                url: "https://www.linkedin.com/feed/update/urn:li:activity:7353052955920510976/",
               },
             ].map((item) => (
               <a
                 key={item.title}
-                href="#cta"
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`scroll-reveal ${item.delay} group block`}
               >
                 <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-5 border border-border/50 bg-secondary/60">
@@ -460,7 +469,7 @@ export default function LandingPage() {
               onSubmit={(e) => {
                 e.preventDefault();
                 window.open(
-                  "https://www.linkedin.com/in/sunilravva",
+                  "https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/",
                   "_blank",
                   "noopener,noreferrer"
                 );
@@ -536,7 +545,7 @@ export default function LandingPage() {
                 <Mail className="w-4 h-4" /> sunilravva@gmail.com
               </a>
               <a
-                href="https://www.linkedin.com/in/sunilravva"
+                href="https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors flex items-center gap-2"
