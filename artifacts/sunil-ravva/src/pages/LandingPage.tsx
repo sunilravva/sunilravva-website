@@ -261,7 +261,7 @@ export default function LandingPage() {
               <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">
                 Recognition
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 mb-8">
                 {[
                   "HSBC 1st Architect of the Year 2019",
                   "Banking Tech Awards – Rising Fintech Star 2020",
@@ -275,6 +275,50 @@ export default function LandingPage() {
                     {award}
                   </div>
                 ))}
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <a
+                  href="https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
+                >
+                  <div className="aspect-video overflow-hidden bg-secondary/60">
+                    <img
+                      src="/images/award-fintech-star.png"
+                      alt="Rising Fintech Star – BankingTech Awards 2020"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold leading-snug">Rising Fintech Star – Highly Commended</p>
+                      <p className="text-xs text-muted-foreground mt-1">BankingTech Awards 2020</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </div>
+                </a>
+                <a
+                  href="https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
+                >
+                  <div className="aspect-video overflow-hidden bg-secondary/60">
+                    <img
+                      src="/images/award-belongs-her.png"
+                      alt="The Award Belongs to Her"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold leading-snug">The Award Belongs to Her</p>
+                      <p className="text-xs text-muted-foreground mt-1">LinkedIn Article</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -389,67 +433,32 @@ export default function LandingPage() {
             </a>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                img: "/images/award-fintech-star.png",
-                badge: "Award",
-                title: "\"Rising Fintech Star\" — BankingTech Awards 2020",
-                read: "LinkedIn Post",
-                delay: "",
-                url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
-              },
-              {
-                img: "/images/award-belongs-her.png",
-                badge: "Article",
-                title: "The Award Belongs to Her",
-                read: "LinkedIn Article",
-                delay: "delay-1",
-                url: "https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/",
-              },
-              {
-                img: "/images/hsbc-innovation.png",
-                badge: "Featured Post",
-                title:
-                  "From Financial Crime Risk to Innovation: My 7-Year HSBC Journey",
-                read: "LinkedIn Post",
-                delay: "delay-2",
-                url: "https://www.linkedin.com/feed/update/urn:li:activity:7353052955920510976/",
-              },
-            ].map((item) => (
-              <a
-                key={item.title}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`scroll-reveal ${item.delay} group block`}
-              >
-                <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-5 border border-border/50 bg-secondary/60">
-                  {item.img ? (
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-75 group-hover:opacity-100"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-background">
-                      <Shield className="w-14 h-14 text-primary/30" />
-                    </div>
-                  )}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-background/80 backdrop-blur text-xs font-semibold rounded-full border border-border/50">
-                      {item.badge}
-                    </span>
-                  </div>
+          <div className="grid md:grid-cols-1 gap-8 max-w-2xl">
+            <a
+              href="https://www.linkedin.com/feed/update/urn:li:activity:7353052955920510976/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="scroll-reveal group block"
+            >
+              <div className="relative aspect-[16/7] rounded-xl overflow-hidden mb-5 border border-border/50 bg-secondary/60">
+                <img
+                  src="/images/hsbc-innovation.png"
+                  alt="From Financial Crime Risk to Innovation: My 7-Year HSBC Journey"
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-75 group-hover:opacity-100"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-background/80 backdrop-blur text-xs font-semibold rounded-full border border-border/50">
+                    Featured Post
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm flex items-center gap-2">
-                  <BookOpen className="w-4 h-4" /> {item.read}
-                </p>
-              </a>
-            ))}
+              </div>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors leading-snug">
+                From Financial Crime Risk to Innovation: My 7-Year HSBC Journey
+              </h3>
+              <p className="text-muted-foreground text-sm flex items-center gap-2">
+                <BookOpen className="w-4 h-4" /> LinkedIn Post
+              </p>
+            </a>
           </div>
         </div>
       </section>
