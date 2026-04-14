@@ -276,7 +276,7 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 <a
                   href="https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/"
                   target="_blank"
@@ -315,6 +315,27 @@ export default function LandingPage() {
                     <div>
                       <p className="text-sm font-semibold leading-snug">Architect of the Year – HSBC</p>
                       <p className="text-xs text-muted-foreground mt-1">LinkedIn Article</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </div>
+                </a>
+                <a
+                  href="https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
+                >
+                  <div className="aspect-video overflow-hidden bg-secondary/60">
+                    <img
+                      src="/images/lloyds-recognition.png"
+                      alt="Data & AI Recognition – Lloyds Technology Centre"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold leading-snug">Data & AI Recognition – Lloyds Technology Centre</p>
+                      <p className="text-xs text-muted-foreground mt-1">LinkedIn Post</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </div>
