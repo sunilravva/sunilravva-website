@@ -313,7 +313,7 @@ export default function LandingPage() {
                   </div>
                   <div className="p-4 flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-semibold leading-snug">The Award Belongs to Her</p>
+                      <p className="text-sm font-semibold leading-snug">Architect of the Year – HSBC</p>
                       <p className="text-xs text-muted-foreground mt-1">LinkedIn Article</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
