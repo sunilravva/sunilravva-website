@@ -368,16 +368,12 @@ export default function LandingPage() {
                 building better financial systems.
               </p>
             </div>
-            <a
-              href="https://www.linkedin.com/build-relation/newsletter-follow"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="#cta">
               <Button
                 variant="ghost"
                 className="gap-2 text-primary hover:text-primary hover:bg-primary/10 group shrink-0"
               >
-                Read all{" "}
+                Subscribe for more{" "}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
@@ -410,9 +406,7 @@ export default function LandingPage() {
             ].map((item) => (
               <a
                 key={item.title}
-                href="https://www.linkedin.com/build-relation/newsletter-follow"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#cta"
                 className={`scroll-reveal ${item.delay} group block`}
               >
                 <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-5 border border-border/50 bg-secondary/60">
