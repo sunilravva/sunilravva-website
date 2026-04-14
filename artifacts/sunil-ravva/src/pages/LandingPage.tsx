@@ -261,21 +261,6 @@ export default function LandingPage() {
               <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">
                 Recognition
               </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                {[
-                  "HSBC 1st Architect of the Year 2019",
-                  "Banking Tech Awards – Rising Fintech Star 2020",
-                  "Technologist of the Quarter – HSBC 2021",
-                ].map((award) => (
-                  <div
-                    key={award}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/60 border border-border/60 text-sm font-medium"
-                  >
-                    <Award className="w-4 h-4 text-primary shrink-0" />
-                    {award}
-                  </div>
-                ))}
-              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <a
                   href="https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/"
@@ -292,7 +277,7 @@ export default function LandingPage() {
                   </div>
                   <div className="p-4 flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-semibold leading-snug">Rising Fintech Star – Highly Commended</p>
+                      <p className="text-sm font-semibold leading-snug">Rising Fintech Star – BankingTech Awards 2020</p>
                       <p className="text-xs text-muted-foreground mt-1">BankingTech Awards 2020</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
@@ -313,7 +298,7 @@ export default function LandingPage() {
                   </div>
                   <div className="p-4 flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-semibold leading-snug">Architect of the Year – HSBC</p>
+                      <p className="text-sm font-semibold leading-snug">HSBC 1st Architect of the Year 2019</p>
                       <p className="text-xs text-muted-foreground mt-1">LinkedIn Article</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
