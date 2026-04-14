@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ChevronDown,
@@ -40,8 +40,48 @@ function useScrollReveal() {
   return containerRef;
 }
 
+const AWARDS = [
+  {
+    img: "/images/award-fintech-star.png",
+    title: "Rising Fintech Star",
+    subtitle: "BankingTech Awards 2020",
+    description: "Highly Commended at the prestigious BankingTech Awards 2020 for outstanding contributions to financial technology innovation.",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
+    linkLabel: "View on LinkedIn",
+    isVideo: false,
+  },
+  {
+    img: "/images/award-belongs-her.png",
+    title: "1st Architect of the Year",
+    subtitle: "HSBC 2019",
+    description: "Recognised as the first-ever Architect of the Year at HSBC, awarded for excellence in technical architecture and product innovation.",
+    url: "https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/",
+    linkLabel: "Read Article",
+    isVideo: false,
+  },
+  {
+    img: "/images/lloyds-recognition.png",
+    title: "Data & AI Recognition",
+    subtitle: "Lloyds Technology Centre",
+    description: "Recognised for driving Data & AI product excellence at Lloyds Technology Centre, accelerating delivery and shaping customer-first data products.",
+    url: "https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b",
+    linkLabel: "View on LinkedIn",
+    isVideo: false,
+  },
+  {
+    img: "/images/shine-award.png",
+    title: "Shine Award 2019",
+    subtitle: "HSBC · HTI Annual Awards",
+    description: "Winner of the HSBC Shine Award at the HTI Annual Awards & Celebrations (TRANSCEND 2020), recognising exceptional performance and impact.",
+    url: "https://www.youtube.com/watch?v=5i7NeuvIbJ8",
+    linkLabel: "Watch on YouTube",
+    isVideo: true,
+  },
+];
+
 export default function LandingPage() {
   useScrollReveal();
+  const [selectedAward, setSelectedAward] = useState<typeof AWARDS[0] | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
@@ -262,44 +302,13 @@ export default function LandingPage() {
                 Recognition
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  {
-                    img: "/images/award-fintech-star.png",
-                    title: "Rising Fintech Star",
-                    subtitle: "BankingTech Awards 2020",
-                    url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
-                    isVideo: false,
-                  },
-                  {
-                    img: "/images/award-belongs-her.png",
-                    title: "1st Architect of the Year",
-                    subtitle: "HSBC 2019",
-                    url: "https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/",
-                    isVideo: false,
-                  },
-                  {
-                    img: "/images/lloyds-recognition.png",
-                    title: "Data & AI Recognition",
-                    subtitle: "Lloyds Technology Centre",
-                    url: "https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b",
-                    isVideo: false,
-                  },
-                  {
-                    img: "/images/shine-award.png",
-                    title: "Shine Award 2019",
-                    subtitle: "HSBC · HTI Annual Awards",
-                    url: "https://www.youtube.com/watch?v=5i7NeuvIbJ8",
-                    isVideo: true,
-                  },
-                ].map((item) => (
-                  <a
+                {AWARDS.map((item) => (
+                  <button
                     key={item.title}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex flex-col items-center text-center gap-3"
+                    onClick={() => setSelectedAward(item)}
+                    className="group flex flex-col items-center text-center gap-3 cursor-pointer"
                   >
-                    <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border/50 group-hover:border-primary/60 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--primary)/0.3)]">
+                    <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border/50 group-hover:border-primary/60 transition-all duration-300 group-hover:shadow-[0_0_24px_hsl(38_92%_55%_/_0.35)]">
                       <img
                         src={item.img}
                         alt={item.title}
@@ -312,12 +321,15 @@ export default function LandingPage() {
                           </div>
                         </div>
                       )}
+                      <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="text-xs font-semibold text-primary bg-background/80 backdrop-blur px-2 py-1 rounded-full">View</span>
+                      </div>
                     </div>
                     <div>
                       <p className="text-sm font-semibold leading-snug group-hover:text-primary transition-colors">{item.title}</p>
                       <p className="text-xs text-muted-foreground mt-0.5">{item.subtitle}</p>
                     </div>
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
@@ -601,6 +613,58 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+
+      {/* Recognition Modal */}
+      {selectedAward && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setSelectedAward(null)}
+        >
+          <div
+            className="relative bg-secondary/90 border border-border/60 rounded-2xl overflow-hidden max-w-md w-full shadow-2xl animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="aspect-video overflow-hidden">
+              <img
+                src={selectedAward.img}
+                alt={selectedAward.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6 space-y-3">
+              <div>
+                <h3 className="text-xl font-bold">{selectedAward.title}</h3>
+                <p className="text-sm text-primary font-medium mt-0.5">{selectedAward.subtitle}</p>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed">{selectedAward.description}</p>
+              <div className="flex gap-3 pt-2">
+                <a
+                  href={selectedAward.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1"
+                >
+                  <Button className="w-full gap-2 rounded-full">
+                    {selectedAward.isVideo ? (
+                      <svg className="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    ) : (
+                      <ArrowRight className="w-4 h-4" />
+                    )}
+                    {selectedAward.linkLabel}
+                  </Button>
+                </a>
+                <Button
+                  variant="outline"
+                  className="rounded-full px-4"
+                  onClick={() => setSelectedAward(null)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
