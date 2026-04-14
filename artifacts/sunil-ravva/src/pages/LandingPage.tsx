@@ -276,7 +276,7 @@ export default function LandingPage() {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 <a
                   href="https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/"
                   target="_blank"
@@ -336,6 +336,32 @@ export default function LandingPage() {
                     <div>
                       <p className="text-sm font-semibold leading-snug">Data & AI Recognition – Lloyds Technology Centre</p>
                       <p className="text-xs text-muted-foreground mt-1">LinkedIn Post</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </div>
+                </a>
+                <a
+                  href="https://www.youtube.com/watch?v=5i7NeuvIbJ8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
+                >
+                  <div className="aspect-video overflow-hidden bg-secondary/60 relative">
+                    <img
+                      src="/images/shine-award.png"
+                      alt="Shine Award 2019 – HSBC"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center border border-border/50 group-hover:bg-primary/20 transition-colors">
+                        <svg className="w-4 h-4 text-primary ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold leading-snug">Shine Award 2019 – HSBC</p>
+                      <p className="text-xs text-muted-foreground mt-1">YouTube · HTI Annual Awards</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </div>
