@@ -473,7 +473,7 @@ export default function LandingPage() {
               {
                 img: "/images/featured-product-innovation.png",
                 badge: "Product Ownership",
-                title: "Product Ownership × Architecture × Innovation",
+                title: "AI-Augmented Product Ownership",
                 url: "https://www.linkedin.com/posts/sunilravva_productownership-architecture-innovation-activity-7369202579681005568-5NdS",
                 delay: "delay-2",
               },
