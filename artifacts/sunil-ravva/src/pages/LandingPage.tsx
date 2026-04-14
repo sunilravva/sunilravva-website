@@ -261,96 +261,64 @@ export default function LandingPage() {
               <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">
                 Recognition
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <a
-                  href="https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
-                >
-                  <div className="aspect-video overflow-hidden bg-secondary/60">
-                    <img
-                      src="/images/award-fintech-star.png"
-                      alt="Rising Fintech Star – BankingTech Awards 2020"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4 flex items-center justify-between">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  {
+                    img: "/images/award-fintech-star.png",
+                    title: "Rising Fintech Star",
+                    subtitle: "BankingTech Awards 2020",
+                    url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
+                    isVideo: false,
+                  },
+                  {
+                    img: "/images/award-belongs-her.png",
+                    title: "1st Architect of the Year",
+                    subtitle: "HSBC 2019",
+                    url: "https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/",
+                    isVideo: false,
+                  },
+                  {
+                    img: "/images/lloyds-recognition.png",
+                    title: "Data & AI Recognition",
+                    subtitle: "Lloyds Technology Centre",
+                    url: "https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b",
+                    isVideo: false,
+                  },
+                  {
+                    img: "/images/shine-award.png",
+                    title: "Shine Award 2019",
+                    subtitle: "HSBC · HTI Annual Awards",
+                    url: "https://www.youtube.com/watch?v=5i7NeuvIbJ8",
+                    isVideo: true,
+                  },
+                ].map((item) => (
+                  <a
+                    key={item.title}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col items-center text-center gap-3"
+                  >
+                    <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border/50 group-hover:border-primary/60 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--primary)/0.3)]">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      {item.isVideo && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-background/30">
+                          <div className="w-8 h-8 rounded-full bg-background/80 backdrop-blur flex items-center justify-center">
+                            <svg className="w-3 h-3 text-primary ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                     <div>
-                      <p className="text-sm font-semibold leading-snug">Rising Fintech Star – BankingTech Awards 2020</p>
-                      <p className="text-xs text-muted-foreground mt-1">BankingTech Awards 2020</p>
+                      <p className="text-sm font-semibold leading-snug group-hover:text-primary transition-colors">{item.title}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{item.subtitle}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
-                <a
-                  href="https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
-                >
-                  <div className="aspect-video overflow-hidden bg-secondary/60">
-                    <img
-                      src="/images/award-belongs-her.png"
-                      alt="The Award Belongs to Her"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-semibold leading-snug">HSBC 1st Architect of the Year 2019</p>
-                      <p className="text-xs text-muted-foreground mt-1">LinkedIn Article</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
-                <a
-                  href="https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
-                >
-                  <div className="aspect-video overflow-hidden bg-secondary/60">
-                    <img
-                      src="/images/lloyds-recognition.png"
-                      alt="Data & AI Recognition – Lloyds Technology Centre"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-semibold leading-snug">Data & AI Recognition – Lloyds Technology Centre</p>
-                      <p className="text-xs text-muted-foreground mt-1">LinkedIn Post</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
-                <a
-                  href="https://www.youtube.com/watch?v=5i7NeuvIbJ8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-xl overflow-hidden border border-border/50 hover:border-primary/40 transition-colors bg-secondary/30"
-                >
-                  <div className="aspect-video overflow-hidden bg-secondary/60 relative">
-                    <img
-                      src="/images/shine-award.png"
-                      alt="Shine Award 2019 – HSBC"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center border border-border/50 group-hover:bg-primary/20 transition-colors">
-                        <svg className="w-4 h-4 text-primary ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-4 flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-semibold leading-snug">Shine Award 2019 – HSBC</p>
-                      <p className="text-xs text-muted-foreground mt-1">YouTube · HTI Annual Awards</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-primary shrink-0 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                  </div>
-                </a>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
