@@ -12,3 +12,21 @@ id = "8yHbPHkwYPLTfegjcOQSS"
 uri = "file://artifacts/mockup-sandbox/public/images/ai-banking.png"
 type = "image"
 title = "AI banking data concepts"
+
+[[generated]]
+id = "JM1UVN46Qo2s5TxeveHdI"
+uri = "file://artifacts/sunil-ravva/public/images/award-fintech-star.png"
+type = "image"
+title = "fintech award trophy"
+
+[[generated]]
+id = "TgzbTFzYDa14K9BLPLBQY"
+uri = "file://artifacts/sunil-ravva/public/images/award-belongs-her.png"
+type = "image"
+title = "women empowerment award"
+
+[[generated]]
+id = "83-QxrByAbEp5ARSO9FKM"
+uri = "file://artifacts/sunil-ravva/public/images/hsbc-innovation.png"
+type = "image"
+title = "HSBC financial innovation"

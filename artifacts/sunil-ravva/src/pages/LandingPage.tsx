@@ -203,6 +203,12 @@ export default function LandingPage() {
             <span className="text-lg font-bold tracking-tight text-foreground">
               CloudBees
             </span>
+            <span className="text-lg font-bold tracking-tight text-foreground">
+              WIPRO
+            </span>
+            <span className="text-lg font-bold tracking-tight text-foreground">
+              TCS
+            </span>
           </div>
         </div>
       </section>
@@ -386,7 +392,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                img: "/images/architecture-data.png",
+                img: "/images/award-fintech-star.png",
                 badge: "Award",
                 title: "\"Rising Fintech Star\" — BankingTech Awards 2020",
                 read: "LinkedIn Post",
@@ -394,7 +400,7 @@ export default function LandingPage() {
                 url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
               },
               {
-                img: "/images/ai-banking.png",
+                img: "/images/award-belongs-her.png",
                 badge: "Article",
                 title: "The Award Belongs to Her",
                 read: "LinkedIn Article",
@@ -402,7 +408,7 @@ export default function LandingPage() {
                 url: "https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/",
               },
               {
-                img: null,
+                img: "/images/hsbc-innovation.png",
                 badge: "Featured Post",
                 title:
                   "From Financial Crime Risk to Innovation: My 7-Year HSBC Journey",
