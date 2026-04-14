@@ -387,8 +387,8 @@ export default function LandingPage() {
             {[
               {
                 img: "/images/architecture-data.png",
-                badge: "Featured Post",
-                title: "Why Product Owners Must Think Like Architects",
+                badge: "Award",
+                title: "\"Rising Fintech Star\" — BankingTech Awards 2020",
                 read: "LinkedIn Post",
                 delay: "",
                 url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
