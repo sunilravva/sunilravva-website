@@ -454,32 +454,57 @@ export default function LandingPage() {
             </a>
           </div>
 
-          <div className="grid md:grid-cols-1 gap-8 max-w-2xl">
-            <a
-              href="https://www.linkedin.com/feed/update/urn:li:activity:7353052955920510976/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="scroll-reveal group block"
-            >
-              <div className="relative aspect-[16/7] rounded-xl overflow-hidden mb-5 border border-border/50 bg-secondary/60">
-                <img
-                  src="/images/hsbc-innovation.png"
-                  alt="From Financial Crime Risk to Innovation: My 7-Year HSBC Journey"
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-75 group-hover:opacity-100"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-background/80 backdrop-blur text-xs font-semibold rounded-full border border-border/50">
-                    Featured Post
-                  </span>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                img: "/images/featured-po-architecture.png",
+                badge: "Product Leadership",
+                title: "Why Product Owners & Architects Must Think as One",
+                url: "https://www.linkedin.com/posts/sunilravva_productandtech-architecturepartnership-poleadership-activity-7353982266626228225-FKs7",
+                delay: "",
+              },
+              {
+                img: "/images/featured-innovation-backlog.png",
+                badge: "Innovation",
+                title: "Innovation Backlog: Architecture Enablers for Product Leaders",
+                url: "https://www.linkedin.com/posts/sunilravva_innovationbacklog-architectureenablers-productleadership-activity-7353249954624102400-S_97",
+                delay: "delay-1",
+              },
+              {
+                img: "/images/featured-product-innovation.png",
+                badge: "Product Ownership",
+                title: "Product Ownership × Architecture × Innovation",
+                url: "https://www.linkedin.com/posts/sunilravva_productownership-architecture-innovation-activity-7369202579681005568-5NdS",
+                delay: "delay-2",
+              },
+            ].map((item) => (
+              <a
+                key={item.title}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`scroll-reveal ${item.delay} group block`}
+              >
+                <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-5 border border-border/50 bg-secondary/60">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-75 group-hover:opacity-100"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-background/80 backdrop-blur text-xs font-semibold rounded-full border border-border/50">
+                      {item.badge}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors leading-snug">
-                From Financial Crime Risk to Innovation: My 7-Year HSBC Journey
-              </h3>
-              <p className="text-muted-foreground text-sm flex items-center gap-2">
-                <BookOpen className="w-4 h-4" /> LinkedIn Post
-              </p>
-            </a>
+                <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm flex items-center gap-2">
+                  <BookOpen className="w-4 h-4" /> LinkedIn Post
+                </p>
+              </a>
+            ))}
           </div>
         </div>
       </section>

@@ -30,3 +30,21 @@ id = "83-QxrByAbEp5ARSO9FKM"
 uri = "file://artifacts/sunil-ravva/public/images/hsbc-innovation.png"
 type = "image"
 title = "HSBC financial innovation"
+
+[[generated]]
+id = "W2nvie8rLjBIZD05imql6"
+uri = "file://artifacts/sunil-ravva/public/images/featured-po-architecture.png"
+type = "image"
+title = "product architecture partnership"
+
+[[generated]]
+id = "VnNqWmTx_W4t_0YvK95Ba"
+uri = "file://artifacts/sunil-ravva/public/images/featured-innovation-backlog.png"
+type = "image"
+title = "innovation backlog architecture"
+
+[[generated]]
+id = "lIlVaw11yHIh5IEBbuf_x"
+uri = "file://artifacts/sunil-ravva/public/images/featured-product-innovation.png"
+type = "image"
+title = "product ownership innovation"
