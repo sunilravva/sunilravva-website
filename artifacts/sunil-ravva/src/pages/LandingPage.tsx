@@ -132,7 +132,7 @@ export default function LandingPage() {
                   </Button>
                 </a>
                 <a
-                  href="https://www.linkedin.com/build-relation/newsletter-follow"
+                  href="https://www.linkedin.com/in/sunilravva"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -460,7 +460,7 @@ export default function LandingPage() {
               onSubmit={(e) => {
                 e.preventDefault();
                 window.open(
-                  "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=sunilravva",
+                  "https://www.linkedin.com/in/sunilravva",
                   "_blank",
                   "noopener,noreferrer"
                 );
@@ -536,7 +536,7 @@ export default function LandingPage() {
                 <Mail className="w-4 h-4" /> sunilravva@gmail.com
               </a>
               <a
-                href="https://www.linkedin.com/build-relation/newsletter-follow"
+                href="https://www.linkedin.com/in/sunilravva"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors flex items-center gap-2"
