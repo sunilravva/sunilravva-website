@@ -40,6 +40,76 @@ function useScrollReveal() {
   return containerRef;
 }
 
+function AnimatedStat({
+  value,
+  suffix = "",
+  label,
+  delay = 0,
+}: {
+  value: number;
+  suffix?: string;
+  label: string;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [display, setDisplay] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const el = ref.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started) {
+            setStarted(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    const duration = 1800;
+    const startTime = performance.now() + delay;
+    let raf = 0;
+    const tick = (now: number) => {
+      if (now < startTime) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.floor(eased * value));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [started, value, delay]);
+
+  const formatted = display.toLocaleString();
+
+  return (
+    <div
+      ref={ref}
+      className="flex flex-col items-center text-center space-y-2"
+    >
+      <span className="text-4xl font-bold text-foreground tabular-nums">
+        {formatted}
+        {suffix}
+      </span>
+      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 const AWARDS = [
   {
     img: "/images/award-fintech-star.png",
@@ -87,8 +157,8 @@ export default function LandingPage() {
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       {/* Ambient glows */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-15%] right-[-10%] w-[45%] h-[45%] rounded-full bg-primary/8 blur-[140px]" />
-        <div className="absolute bottom-[-15%] left-[-10%] w-[45%] h-[45%] rounded-full bg-blue-500/5 blur-[140px]" />
+        <div className="absolute top-[-15%] right-[-10%] w-[45%] h-[45%] rounded-full bg-primary/8 blur-[140px] animate-drift-a" />
+        <div className="absolute bottom-[-15%] left-[-10%] w-[45%] h-[45%] rounded-full bg-blue-500/5 blur-[140px] animate-drift-b" />
       </div>
 
       {/* Navigation */}
@@ -140,12 +210,12 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1 space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-sm font-medium">
+              <div className="hero-rise hero-rise-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-sm font-medium">
                 <Globe className="w-4 h-4" />
                 <span>Build Better. Think Broader.</span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05]">
+              <h1 className="hero-rise hero-rise-2 text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05]">
                 Architecting the{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300">
                   Future
@@ -153,12 +223,12 @@ export default function LandingPage() {
                 of Financial Technology.
               </h1>
 
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
+              <p className="hero-rise hero-rise-3 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
                 VP Product &amp; Innovation Leader. 19+ years transforming
                 complex technology into market-leading financial solutions.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="hero-rise hero-rise-4 flex flex-col sm:flex-row gap-4 pt-2">
                 <a
                   href="https://www.linkedin.com/in/sunilravva"
                   target="_blank"
@@ -188,7 +258,7 @@ export default function LandingPage() {
             </div>
 
             {/* Profile Photo */}
-            <div className="w-56 h-56 md:w-72 md:h-72 shrink-0">
+            <div className="hero-rise hero-rise-photo w-56 h-56 md:w-72 md:h-72 shrink-0 animate-float">
               <div className="relative w-full h-full rounded-full border-2 border-primary/40 shadow-2xl overflow-hidden group">
                 <img
                   src="/images/sunil.jpg"
@@ -212,24 +282,10 @@ export default function LandingPage() {
       <section className="border-y border-border/50 bg-secondary/25 backdrop-blur-sm py-12 z-10 relative">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: "19+", label: "Years Experience" },
-              { value: "8,000+", label: "LinkedIn Followers" },
-              { value: "1,500+", label: "Newsletter Subscribers" },
-              { value: "70+", label: "Architects Trained" },
-            ].map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`scroll-reveal delay-${i + 1} flex flex-col items-center text-center space-y-2`}
-              >
-                <span className="text-4xl font-bold text-foreground">
-                  {stat.value}
-                </span>
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+            <AnimatedStat value={19} suffix="+" label="Years Experience" delay={0} />
+            <AnimatedStat value={8000} suffix="+" label="LinkedIn Followers" delay={120} />
+            <AnimatedStat value={1500} suffix="+" label="Newsletter Subscribers" delay={240} />
+            <AnimatedStat value={70} suffix="+" label="Architects Trained" delay={360} />
           </div>
 
           {/* Company logos */}
