@@ -21,7 +21,7 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ### sunil-ravva (React + Vite, previewPath: `/`)
 Personal "About Me" landing page for Sunil Ravva — VP Product Owner & Innovation Leader.
 - Single-page, mobile-first, dark midnight navy + amber/gold theme
-- Sections: Hero (with View My Work / Download Resume / Email Me CTAs), Social Proof Bar (logos + stats), About, Background (Education / Certifications / Languages / Fun Facts — Thaisa-style), Core Expertise, Featured Insights, Contact (email/LinkedIn/phone + mailto contact form), CTA, Footer
+- Sections: Hero (with View My Work / Download Resume / Email Me CTAs), Social Proof Bar (logos via Google favicon API + company names + stats), About + Recognition (4 awards: HSBC Shine Award 2019, 1st Architect of the Year HSBC 2019, Rising Fintech Star, Certificate of Recognition Lloyds Technology Centre 2026), Background (Education / Certifications with issuers / Where I've worked timeline / Fun Facts), Core Expertise, Featured Insights, "Let's Build Something That Matters" CTA (newsletter signup), Contact (email/LinkedIn/phone + mailto contact form), Footer
 - Top nav: About · Background · Expertise · Insights · Contact
 - All links point to real LinkedIn/email/newsletter URLs
 - AI-generated images in `public/images/`

@@ -15,7 +15,6 @@ import {
   Download,
   GraduationCap,
   BadgeCheck,
-  Languages as LanguagesIcon,
   MapPin,
   Coffee,
   Plane,
@@ -122,13 +121,13 @@ function AnimatedStat({
 
 const AWARDS = [
   {
-    img: "/images/award-fintech-star.png",
-    title: "Rising Fintech Star",
-    subtitle: "BankingTech Awards 2020",
-    description: "Highly Commended at the prestigious BankingTech Awards 2020 for outstanding contributions to financial technology innovation.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
-    linkLabel: "View on LinkedIn",
-    isVideo: false,
+    img: "/images/shine-award.png",
+    title: "HSBC Shine Award",
+    subtitle: "HSBC 2019",
+    description: "Winner of the HSBC Shine Award at the HTI Annual Awards & Celebrations (TRANSCEND 2020), recognising exceptional performance and impact.",
+    url: "https://www.youtube.com/watch?v=5i7NeuvIbJ8",
+    linkLabel: "Watch on YouTube",
+    isVideo: true,
   },
   {
     img: "/images/award-belongs-her.png",
@@ -140,22 +139,22 @@ const AWARDS = [
     isVideo: false,
   },
   {
-    img: "/images/lloyds-recognition.png",
-    title: "Data & AI Recognition",
-    subtitle: "Lloyds Technology Centre",
-    description: "Recognised for driving Data & AI product excellence at Lloyds Technology Centre, accelerating delivery and shaping customer-first data products.",
-    url: "https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b",
+    img: "/images/award-fintech-star.png",
+    title: "Rising Fintech Star",
+    subtitle: "BankingTech Awards 2020",
+    description: "Highly Commended at the prestigious BankingTech Awards 2020 for outstanding contributions to financial technology innovation.",
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
     linkLabel: "View on LinkedIn",
     isVideo: false,
   },
   {
-    img: "/images/shine-award.png",
-    title: "Shine Award 2019",
-    subtitle: "HSBC · HTI Annual Awards",
-    description: "Winner of the HSBC Shine Award at the HTI Annual Awards & Celebrations (TRANSCEND 2020), recognising exceptional performance and impact.",
-    url: "https://www.youtube.com/watch?v=5i7NeuvIbJ8",
-    linkLabel: "Watch on YouTube",
-    isVideo: true,
+    img: "/images/lloyds-recognition.png",
+    title: "Certificate of Recognition",
+    subtitle: "Lloyds Technology Centre 2026",
+    description: "Recognised for driving Data & AI product excellence at Lloyds Technology Centre, accelerating delivery and shaping customer-first data products.",
+    url: "https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b",
+    linkLabel: "View on LinkedIn",
+    isVideo: false,
   },
 ];
 
@@ -315,22 +314,40 @@ export default function LandingPage() {
           </div>
 
           {/* Company logos */}
-          <div className="mt-10 pt-8 border-t border-border/40 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 hover:opacity-70 transition-opacity duration-500">
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              LLOYDS BANKING GROUP
-            </span>
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              HSBC
-            </span>
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              CloudBees
-            </span>
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              WIPRO
-            </span>
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              TCS
-            </span>
+          <div className="mt-10 pt-8 border-t border-border/40">
+            <p className="text-center text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-6">
+              Trusted across leading banks &amp; tech companies
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6 md:gap-x-14">
+              {[
+                { name: "Lloyds Banking Group", domain: "lloydsbankinggroup.com" },
+                { name: "HSBC", domain: "hsbc.com" },
+                { name: "CloudBees", domain: "cloudbees.com" },
+                { name: "Wipro", domain: "wipro.com" },
+                { name: "TCS", domain: "tcs.com" },
+              ].map((c) => (
+                <div
+                  key={c.name}
+                  className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  title={c.name}
+                >
+                  <img
+                    src={`https://www.google.com/s2/favicons?domain=${c.domain}&sz=64`}
+                    alt={`${c.name} logo`}
+                    width={28}
+                    height={28}
+                    loading="lazy"
+                    className="w-7 h-7 object-contain rounded-sm bg-white/95 p-0.5 shadow-sm"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                  <span className="text-base font-bold tracking-tight text-foreground">
+                    {c.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -482,47 +499,97 @@ export default function LandingPage() {
               <CardContent>
                 <ul className="space-y-3">
                   {[
-                    "Certified SAFe® Product Owner / Product Manager",
-                    "ICAgile Certified Professional — Agile Product Management",
-                    "Oracle Cloud Infrastructure 2019 — Cloud Operations Associate",
-                    "Microsoft Certified Professional",
-                    "ITIL® v3 (2011)",
+                    { name: "Certified SAFe® Product Owner / Product Manager (POPM)", issuer: "Scaled Agile, Inc." },
+                    { name: "ICAgile Certified Professional — Agile Product Management (ICP-APM)", issuer: "ICAgile" },
+                    { name: "Oracle Cloud Infrastructure 2019 — Cloud Operations Associate", issuer: "Oracle" },
+                    { name: "Microsoft Certified Professional (MCP)", issuer: "Microsoft" },
+                    { name: "ITIL® v3 Foundation (2011)", issuer: "AXELOS" },
+                    { name: "Train the Trainer — Architecture Practice", issuer: "HSBC" },
+                    { name: "Enterprise Engineer Programme — Mentor", issuer: "HSBC" },
                   ].map((cert) => (
                     <li
-                      key={cert}
+                      key={cert.name}
                       className="flex items-start gap-3 text-sm text-muted-foreground"
                     >
                       <BadgeCheck className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{cert}</span>
+                      <div>
+                        <span className="text-foreground/90">{cert.name}</span>
+                        <span className="block text-xs text-muted-foreground/80">
+                          {cert.issuer}
+                        </span>
+                      </div>
                     </li>
                   ))}
                 </ul>
+                <a
+                  href="https://www.linkedin.com/in/sunilravva/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline mt-4"
+                >
+                  View full list on LinkedIn <ArrowRight className="w-3 h-3" />
+                </a>
               </CardContent>
             </Card>
 
-            {/* Languages */}
+            {/* Companies I worked at */}
             <Card className="scroll-reveal delay-2 bg-card/60 backdrop-blur-sm border-border/50">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                    <LanguagesIcon className="w-6 h-6" />
+                    <Briefcase className="w-6 h-6" />
                   </div>
-                  <CardTitle className="text-xl">Languages I speak</CardTitle>
+                  <CardTitle className="text-xl">Where I&apos;ve worked</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {["English", "Hindi", "Telugu", "Oriya"].map((lang) => (
-                    <span
-                      key={lang}
-                      className="px-3 py-1.5 rounded-full bg-secondary/80 border border-border/60 text-sm font-medium"
-                    >
-                      {lang}
-                    </span>
+                <ol className="relative border-l border-border/60 ml-2 space-y-5">
+                  {[
+                    {
+                      company: "Lloyds Technology Centre India",
+                      role: "Data Product Owner",
+                      dates: "Oct 2024 – Present",
+                    },
+                    {
+                      company: "HSBC Data Processing Pvt. Ltd",
+                      role: "Senior Product Owner — VP",
+                      dates: "Sep 2023 – Oct 2024",
+                    },
+                    {
+                      company: "CloudBees",
+                      role: "Product Architect & Lead Product Manager",
+                      dates: "Jun 2022 – May 2023",
+                    },
+                    {
+                      company: "HSBC",
+                      role: "Associate Lead Architect / Head — Practices & Innovation",
+                      dates: "May 2015 – Jul 2022",
+                    },
+                    {
+                      company: "Tata Consultancy Services",
+                      role: "Information & Network Security",
+                      dates: "Apr 2014 – Apr 2015",
+                    },
+                    {
+                      company: "Wipro Technologies",
+                      role: "Tech Lead (Lloyds, BestBuy, Foster's, Shell)",
+                      dates: "Feb 2008 – Mar 2014",
+                    },
+                  ].map((job, i) => (
+                    <li key={i} className="ml-4">
+                      <span className="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-background" />
+                      <h4 className="text-sm font-semibold text-foreground leading-snug">
+                        {job.company}
+                      </h4>
+                      <p className="text-xs text-primary mt-0.5">{job.role}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        {job.dates}
+                      </p>
+                    </li>
                   ))}
-                </div>
-                <div className="flex items-center gap-2 mt-6 text-sm text-muted-foreground">
-                  <MapPin className="w-4 h-4 text-primary" />
+                </ol>
+                <div className="flex items-center gap-2 mt-5 pt-4 border-t border-border/40 text-xs text-muted-foreground">
+                  <MapPin className="w-3.5 h-3.5 text-primary" />
                   <span>Based in Hyderabad, India · Working with UK &amp; global teams</span>
                 </div>
               </CardContent>
@@ -740,6 +807,53 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* CTA — Newsletter signup */}
+      <section
+        id="cta"
+        className="py-24 md:py-32 px-6 border-t border-border/40 z-10 relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
+          <div className="scroll-reveal space-y-8">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">
+              Let&apos;s Build Something That Matters.
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Join 1,500+ product leaders and fintech innovators getting weekly
+              insights on building scalable, human-centered financial products.
+            </p>
+
+            <form
+              className="max-w-md mx-auto flex flex-col sm:flex-row gap-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.open(
+                  "https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              }}
+            >
+              <Input
+                type="email"
+                placeholder="name@example.com"
+                className="h-12 bg-background/50 border-border/60 text-base rounded-full px-6 focus-visible:ring-primary/50 flex-1"
+              />
+              <Button
+                type="submit"
+                className="h-12 rounded-full px-8 shrink-0 font-semibold"
+              >
+                Subscribe
+              </Button>
+            </form>
+            <p className="text-sm text-muted-foreground">
+              Subscribe to &quot;Build Better. Think Broader.&quot; on LinkedIn — weekly
+              insights, zero spam.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section
         id="contact"
@@ -880,76 +994,6 @@ export default function LandingPage() {
               </form>
             </CardContent>
           </Card>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        id="cta"
-        className="py-24 md:py-32 px-6 border-t border-border/40 z-10 relative overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <div className="scroll-reveal space-y-8">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">
-              Let&apos;s Build Something That Matters.
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join 1,500+ product leaders and fintech innovators getting weekly
-              insights on building scalable, human-centered financial products.
-            </p>
-
-            <form
-              className="max-w-md mx-auto flex flex-col sm:flex-row gap-3"
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.open(
-                  "https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/",
-                  "_blank",
-                  "noopener,noreferrer"
-                );
-              }}
-            >
-              <Input
-                type="email"
-                placeholder="name@example.com"
-                className="h-12 bg-background/50 border-border/60 text-base rounded-full px-6 focus-visible:ring-primary/50 flex-1"
-              />
-              <Button
-                type="submit"
-                className="h-12 rounded-full px-8 shrink-0 font-semibold"
-              >
-                Subscribe
-              </Button>
-            </form>
-            <p className="text-sm text-muted-foreground">
-              Subscribe to &quot;Build Better. Think Broader.&quot; on LinkedIn — weekly
-              insights, zero spam.
-            </p>
-
-            <div className="flex items-center justify-center gap-4 pt-4">
-              <div className="h-px bg-border flex-1 max-w-24" />
-              <span className="text-muted-foreground text-xs uppercase tracking-widest font-semibold">
-                Or
-              </span>
-              <div className="h-px bg-border flex-1 max-w-24" />
-            </div>
-
-            <a
-              href="https://www.linkedin.com/in/sunilravva"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full h-13 px-8 border-border/60 hover:bg-secondary/60 group mt-2"
-              >
-                <Linkedin className="w-5 h-5 mr-2 text-[#0A66C2] group-hover:scale-110 transition-transform" />
-                Connect on LinkedIn
-              </Button>
-            </a>
-          </div>
         </div>
       </section>
 
