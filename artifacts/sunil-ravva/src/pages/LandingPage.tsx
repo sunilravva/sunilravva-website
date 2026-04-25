@@ -207,6 +207,12 @@ export default function LandingPage() {
               Insights
             </a>
             <a
+              href="#mentorship"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hidden lg:block"
+            >
+              Mentorship
+            </a>
+            <a
               href="#contact"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hidden md:block"
             >
@@ -499,21 +505,39 @@ export default function LandingPage() {
               <CardContent>
                 <ul className="space-y-3">
                   {[
-                    { name: "Certified SAFe® Product Owner / Product Manager (POPM)", issuer: "Scaled Agile, Inc." },
-                    { name: "ICAgile Certified Professional — Agile Product Management (ICP-APM)", issuer: "ICAgile" },
-                    { name: "Oracle Cloud Infrastructure 2019 — Cloud Operations Associate", issuer: "Oracle" },
-                    { name: "Microsoft Certified Professional (MCP)", issuer: "Microsoft" },
-                    { name: "ITIL® v3 Foundation (2011)", issuer: "AXELOS" },
-                    { name: "Train the Trainer — Architecture Practice", issuer: "HSBC" },
-                    { name: "Enterprise Engineer Programme — Mentor", issuer: "HSBC" },
+                    {
+                      name: "Certified SAFe® Product Owner / Product Manager (POPM)",
+                      issuer: "Scaled Agile, Inc.",
+                      tag: "Product",
+                    },
+                    {
+                      name: "ICAgile Certified Professional — Agile Product Management (ICP-APM)",
+                      issuer: "ICAgile",
+                      tag: "Product",
+                    },
+                    {
+                      name: "Enterprise Engineer Programme — Mentor",
+                      issuer: "HSBC",
+                      tag: "HSBC",
+                    },
+                    {
+                      name: "Train the Trainer — Architecture Practice",
+                      issuer: "HSBC",
+                      tag: "HSBC",
+                    },
                   ].map((cert) => (
                     <li
                       key={cert.name}
                       className="flex items-start gap-3 text-sm text-muted-foreground"
                     >
                       <BadgeCheck className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <span className="text-foreground/90">{cert.name}</span>
+                      <div className="flex-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <span className="text-foreground/90">{cert.name}</span>
+                          <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-primary/10 text-primary font-semibold whitespace-nowrap mt-0.5">
+                            {cert.tag}
+                          </span>
+                        </div>
                         <span className="block text-xs text-muted-foreground/80">
                           {cert.issuer}
                         </span>
@@ -521,11 +545,15 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
+                <p className="text-xs text-muted-foreground/80 mt-5 pt-4 border-t border-border/40">
+                  Plus Oracle Cloud Infrastructure, Microsoft Certified
+                  Professional, ITIL® v3 and more.
+                </p>
                 <a
                   href="https://www.linkedin.com/in/sunilravva/details/certifications/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline mt-4"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline mt-2"
                 >
                   View full list on LinkedIn <ArrowRight className="w-3 h-3" />
                 </a>
@@ -803,6 +831,143 @@ export default function LandingPage() {
                 </p>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Speaking & Mentorship */}
+      <section
+        id="mentorship"
+        className="py-24 md:py-32 px-6 bg-secondary/15 border-y border-border/40 z-10 relative"
+      >
+        <div className="container mx-auto max-w-6xl">
+          <div className="scroll-reveal text-center mb-14">
+            <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+              Giving back
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
+              Speaking &amp; Mentorship
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Building the next generation of architects and product leaders —
+              one conversation, cohort, and newsletter issue at a time.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-14">
+            <Card className="scroll-reveal bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/40 transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3">
+                  <Users className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-2xl">70+</CardTitle>
+                <p className="text-sm font-semibold text-foreground/90">
+                  Architects trained
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Personally trained 70+ architects across{" "}
+                  <span className="text-foreground font-medium">
+                    Hyderabad, Pune and UK locations
+                  </span>{" "}
+                  during my time at HSBC — including Train-the-Trainer and
+                  Enterprise Engineer Programme cohorts.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="scroll-reveal delay-1 bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/40 transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-2xl">1,500+</CardTitle>
+                <p className="text-sm font-semibold text-foreground/90">
+                  Newsletter subscribers
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Weekly insights on product strategy, architecture and
+                  fintech via{" "}
+                  <span className="text-foreground font-medium">
+                    &quot;Build Better. Think Broader.&quot;
+                  </span>{" "}
+                  on LinkedIn.
+                </p>
+                <a
+                  href="https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline mt-3"
+                >
+                  Read the newsletter <ArrowRight className="w-3 h-3" />
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card className="scroll-reveal delay-2 bg-card/60 backdrop-blur-sm border-border/50 hover:border-primary/40 transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3">
+                  <Lightbulb className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-2xl">50+</CardTitle>
+                <p className="text-sm font-semibold text-foreground/90">
+                  Innovation initiatives
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Built and led innovation communities at HSBC driving 50+
+                  strategic initiatives — fintech alliances, hackathons and
+                  enterprise idea management.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="scroll-reveal grid md:grid-cols-3 gap-3">
+            {[
+              { city: "Hyderabad", role: "Architecture Academy & EEP cohorts" },
+              { city: "Pune", role: "Train-the-Trainer sessions" },
+              { city: "United Kingdom", role: "Cross-region mentorship" },
+            ].map((loc) => (
+              <div
+                key={loc.city}
+                className="flex items-center gap-3 p-4 rounded-xl bg-card/40 border border-border/50"
+              >
+                <MapPin className="w-5 h-5 text-primary shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    {loc.city}
+                  </p>
+                  <p className="text-xs text-muted-foreground">{loc.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="scroll-reveal flex flex-wrap justify-center gap-3 mt-10">
+            <a
+              href="https://www.linkedin.com/in/sunilravva"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full gap-2 border-border/60 hover:bg-secondary/60"
+              >
+                <Linkedin className="w-4 h-4 text-[#0A66C2]" /> Connect to
+                discuss mentorship
+              </Button>
+            </a>
+            <a href="#contact">
+              <Button size="lg" className="rounded-full gap-2">
+                <Mail className="w-4 h-4" /> Invite Sunil to speak
+              </Button>
+            </a>
           </div>
         </div>
       </section>

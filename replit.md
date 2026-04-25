@@ -21,8 +21,9 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ### sunil-ravva (React + Vite, previewPath: `/`)
 Personal "About Me" landing page for Sunil Ravva — VP Product Owner & Innovation Leader.
 - Single-page, mobile-first, dark midnight navy + amber/gold theme
-- Sections: Hero (with View My Work / Download Resume / Email Me CTAs), Social Proof Bar (logos via Google favicon API + company names + stats), About + Recognition (4 awards: HSBC Shine Award 2019, 1st Architect of the Year HSBC 2019, Rising Fintech Star, Certificate of Recognition Lloyds Technology Centre 2026), Background (Education / Certifications with issuers / Where I've worked timeline / Fun Facts), Core Expertise, Featured Insights, "Let's Build Something That Matters" CTA (newsletter signup), Contact (email/LinkedIn/phone + mailto contact form), Footer
-- Top nav: About · Background · Expertise · Insights · Contact
+- Sections: Hero (with View My Work / Download Resume / Email Me CTAs), Social Proof Bar (logos via Google favicon API + company names + stats), About + Recognition (4 awards: HSBC Shine Award 2019, 1st Architect of the Year HSBC 2019, Rising Fintech Star, Certificate of Recognition Lloyds Technology Centre 2026), Background (Education / Certifications with category tags + LinkedIn link / Where I've worked timeline / Fun Facts), Core Expertise, Featured Insights, Speaking & Mentorship (70+ architects trained across Hyderabad/Pune/UK + 1500+ newsletter + 50+ innovation initiatives), "Let's Build Something That Matters" CTA (newsletter signup), Contact (email/LinkedIn/phone + mailto contact form), Footer
+- Top nav: About · Background · Expertise · Insights · Mentorship · Contact
+- Animations: hero-rise stagger entry (CSS keyframes), animate-float on profile photo (8s breathing), animate-drift-a/b on background ambient orbs (20-24s), AnimatedStat counters with IntersectionObserver (count-up on scroll-into-view)
 - All links point to real LinkedIn/email/newsletter URLs
 - AI-generated images in `public/images/`
 - Resume PDF served from `public/sunil-ravva-resume.pdf`
