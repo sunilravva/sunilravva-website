@@ -21,6 +21,8 @@ import {
   Music,
   Lightbulb,
   Phone,
+  Instagram,
+  CalendarCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -511,19 +513,9 @@ export default function LandingPage() {
                       tag: "Product",
                     },
                     {
-                      name: "ICAgile Certified Professional — Agile Product Management (ICP-APM)",
-                      issuer: "ICAgile",
-                      tag: "Product",
-                    },
-                    {
-                      name: "Enterprise Engineer Programme — Mentor",
-                      issuer: "HSBC",
-                      tag: "HSBC",
-                    },
-                    {
-                      name: "Train the Trainer — Architecture Practice",
-                      issuer: "HSBC",
-                      tag: "HSBC",
+                      name: "Google Cloud — Professional Cloud Architect",
+                      issuer: "Google Cloud",
+                      tag: "Google",
                     },
                   ].map((cert) => (
                     <li
@@ -546,8 +538,9 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <p className="text-xs text-muted-foreground/80 mt-5 pt-4 border-t border-border/40">
-                  Plus Oracle Cloud Infrastructure, Microsoft Certified
-                  Professional, ITIL® v3 and more.
+                  Plus ICAgile APM, HSBC Enterprise Engineer Mentor, Train the
+                  Trainer, Oracle Cloud, Microsoft Certified Professional, ITIL®
+                  v3 and more.
                 </p>
                 <a
                   href="https://www.linkedin.com/in/sunilravva/details/certifications/"
@@ -927,28 +920,16 @@ export default function LandingPage() {
             </Card>
           </div>
 
-          <div className="scroll-reveal grid md:grid-cols-3 gap-3">
-            {[
-              { city: "Hyderabad", role: "Architecture Academy & EEP cohorts" },
-              { city: "Pune", role: "Train-the-Trainer sessions" },
-              { city: "United Kingdom", role: "Cross-region mentorship" },
-            ].map((loc) => (
-              <div
-                key={loc.city}
-                className="flex items-center gap-3 p-4 rounded-xl bg-card/40 border border-border/50"
-              >
-                <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">
-                    {loc.city}
-                  </p>
-                  <p className="text-xs text-muted-foreground">{loc.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="scroll-reveal flex flex-wrap justify-center gap-3 mt-10">
+          <div className="scroll-reveal flex flex-wrap justify-center gap-3">
+            <a
+              href="https://topmate.io/sunilravva"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="rounded-full gap-2">
+                <CalendarCheck className="w-4 h-4" /> Book a 1:1 on Topmate
+              </Button>
+            </a>
             <a
               href="https://www.linkedin.com/in/sunilravva"
               target="_blank"
@@ -959,12 +940,16 @@ export default function LandingPage() {
                 size="lg"
                 className="rounded-full gap-2 border-border/60 hover:bg-secondary/60"
               >
-                <Linkedin className="w-4 h-4 text-[#0A66C2]" /> Connect to
-                discuss mentorship
+                <Linkedin className="w-4 h-4 text-[#0A66C2]" /> Connect on
+                LinkedIn
               </Button>
             </a>
             <a href="#contact">
-              <Button size="lg" className="rounded-full gap-2">
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full gap-2 border-border/60 hover:bg-secondary/60"
+              >
                 <Mail className="w-4 h-4" /> Invite Sunil to speak
               </Button>
             </a>
@@ -1037,7 +1022,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4 mb-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             <a
               href="mailto:sunilravva@gmail.com"
               className="group flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-card/60 border border-border/50 hover:border-primary/50 hover:bg-card/80 transition-all"
@@ -1047,7 +1032,7 @@ export default function LandingPage() {
               </div>
               <div>
                 <p className="font-semibold text-base">Email</p>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1 break-all">
                   sunilravva@gmail.com
                 </p>
               </div>
@@ -1065,7 +1050,24 @@ export default function LandingPage() {
               <div>
                 <p className="font-semibold text-base">LinkedIn</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  linkedin.com/in/sunilravva
+                  /in/sunilravva
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="https://www.instagram.com/sunil.ravva/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-card/60 border border-border/50 hover:border-primary/50 hover:bg-card/80 transition-all"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                <Instagram className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-base">Instagram</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  @sunil.ravva
                 </p>
               </div>
             </a>
