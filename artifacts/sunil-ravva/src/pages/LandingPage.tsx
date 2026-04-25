@@ -12,6 +12,16 @@ import {
   Network,
   Shield,
   Award,
+  Download,
+  GraduationCap,
+  BadgeCheck,
+  Languages as LanguagesIcon,
+  MapPin,
+  Coffee,
+  Plane,
+  Music,
+  Lightbulb,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -180,6 +190,12 @@ export default function LandingPage() {
               About
             </a>
             <a
+              href="#background"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hidden md:block"
+            >
+              Background
+            </a>
+            <a
               href="#expertise"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hidden md:block"
             >
@@ -191,14 +207,20 @@ export default function LandingPage() {
             >
               Insights
             </a>
-            <a href="#cta">
+            <a
+              href="#contact"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hidden md:block"
+            >
+              Contact
+            </a>
+            <a href="#contact">
               <Button
                 variant="outline"
                 size="sm"
                 className="rounded-full gap-2 border-primary/30 hover:border-primary/60 hover:bg-primary/10 text-primary"
               >
                 <Mail className="w-4 h-4" />
-                <span className="hidden sm:inline">Subscribe</span>
+                <span className="hidden sm:inline">Contact Sunil</span>
               </Button>
             </a>
           </div>
@@ -228,30 +250,34 @@ export default function LandingPage() {
                 complex technology into market-leading financial solutions.
               </p>
 
-              <div className="hero-rise hero-rise-4 flex flex-col sm:flex-row gap-4 pt-2">
-                <a
-                  href="https://www.linkedin.com/in/sunilravva"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <div className="hero-rise hero-rise-4 flex flex-col sm:flex-row flex-wrap gap-3 pt-2">
+                <a href="#content">
                   <Button
                     size="lg"
                     className="rounded-full text-base h-13 px-8 gap-2 w-full sm:w-auto"
                   >
-                    Let&apos;s Connect <ArrowRight className="w-5 h-5" />
+                    View My Work <ArrowRight className="w-5 h-5" />
                   </Button>
                 </a>
                 <a
-                  href="https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/sunil-ravva-resume.pdf"
+                  download
                 >
                   <Button
                     size="lg"
                     variant="outline"
                     className="rounded-full text-base h-13 px-8 gap-2 border-border/60 hover:bg-secondary/60 w-full sm:w-auto"
                   >
-                    <BookOpen className="w-5 h-5" /> Newsletter
+                    <Download className="w-5 h-5" /> Download Resume
+                  </Button>
+                </a>
+                <a href="mailto:sunilravva@gmail.com">
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    className="rounded-full text-base h-13 px-8 gap-2 w-full sm:w-auto"
+                  >
+                    <Mail className="w-5 h-5" /> Email Me
                   </Button>
                 </a>
               </div>
@@ -389,6 +415,164 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Background — Education, Certifications, Languages, Fun Facts */}
+      <section
+        id="background"
+        className="py-24 md:py-32 px-6 bg-secondary/10 border-y border-border/40 z-10 relative"
+      >
+        <div className="container mx-auto max-w-6xl">
+          <div className="scroll-reveal text-center mb-14">
+            <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+              Get to know me
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
+              A bit more about Sunil
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              The education, certifications, and curiosities that shape how I
+              build products.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Education */}
+            <Card className="scroll-reveal bg-card/60 backdrop-blur-sm border-border/50">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <GraduationCap className="w-6 h-6" />
+                  </div>
+                  <CardTitle className="text-xl">Education</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                <div className="border-l-2 border-primary/40 pl-4">
+                  <h4 className="font-semibold text-base">
+                    Master of Computer Applications (MCA)
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Computer Science · 2005 – 2008
+                  </p>
+                </div>
+                <div className="border-l-2 border-border pl-4">
+                  <h4 className="font-semibold text-base">
+                    Bachelor of Information Technology
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Hi-Tech College of Engineering · 2002 – 2005
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Certifications */}
+            <Card className="scroll-reveal delay-1 bg-card/60 backdrop-blur-sm border-border/50">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <BadgeCheck className="w-6 h-6" />
+                  </div>
+                  <CardTitle className="text-xl">Certifications</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {[
+                    "Certified SAFe® Product Owner / Product Manager",
+                    "ICAgile Certified Professional — Agile Product Management",
+                    "Oracle Cloud Infrastructure 2019 — Cloud Operations Associate",
+                    "Microsoft Certified Professional",
+                    "ITIL® v3 (2011)",
+                  ].map((cert) => (
+                    <li
+                      key={cert}
+                      className="flex items-start gap-3 text-sm text-muted-foreground"
+                    >
+                      <BadgeCheck className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>{cert}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Languages */}
+            <Card className="scroll-reveal delay-2 bg-card/60 backdrop-blur-sm border-border/50">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <LanguagesIcon className="w-6 h-6" />
+                  </div>
+                  <CardTitle className="text-xl">Languages I speak</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {["English", "Hindi", "Telugu", "Oriya"].map((lang) => (
+                    <span
+                      key={lang}
+                      className="px-3 py-1.5 rounded-full bg-secondary/80 border border-border/60 text-sm font-medium"
+                    >
+                      {lang}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 mt-6 text-sm text-muted-foreground">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span>Based in Hyderabad, India · Working with UK &amp; global teams</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Fun Facts */}
+            <Card className="scroll-reveal delay-3 bg-card/60 backdrop-blur-sm border-border/50">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                    <Lightbulb className="w-6 h-6" />
+                  </div>
+                  <CardTitle className="text-xl">Fun facts</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-4">
+                  {[
+                    {
+                      icon: <BookOpen className="w-4 h-4 text-primary" />,
+                      text: "Publishes a weekly newsletter — Build Better. Think Broader. — to 1,500+ product leaders.",
+                    },
+                    {
+                      icon: <Users className="w-4 h-4 text-primary" />,
+                      text: "Has personally trained 70+ architects across India and the UK.",
+                    },
+                    {
+                      icon: <Coffee className="w-4 h-4 text-primary" />,
+                      text: "Best ideas usually arrive between the second cup of coffee and a long walk.",
+                    },
+                    {
+                      icon: <Plane className="w-4 h-4 text-primary" />,
+                      text: "Loves spending time exploring new cultures with family on weekend trips.",
+                    },
+                    {
+                      icon: <Music className="w-4 h-4 text-primary" />,
+                      text: "Unwinds with classic Telugu cinema and the occasional impromptu cricket match.",
+                    },
+                  ].map((fact, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-sm text-muted-foreground"
+                    >
+                      <span className="mt-0.5 shrink-0">{fact.icon}</span>
+                      <span>{fact.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -556,6 +740,149 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Contact */}
+      <section
+        id="contact"
+        className="py-24 md:py-32 px-6 bg-secondary/15 border-t border-border/40 z-10 relative"
+      >
+        <div className="container mx-auto max-w-5xl">
+          <div className="scroll-reveal text-center mb-14">
+            <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-3">
+              Get in touch
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
+              Contact Sunil
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              The fastest ways to reach me — pick whichever you prefer.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4 mb-10">
+            <a
+              href="mailto:sunilravva@gmail.com"
+              className="group flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-card/60 border border-border/50 hover:border-primary/50 hover:bg-card/80 transition-all"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-base">Email</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  sunilravva@gmail.com
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/sunilravva"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-card/60 border border-border/50 hover:border-primary/50 hover:bg-card/80 transition-all"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                <Linkedin className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-base">LinkedIn</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  linkedin.com/in/sunilravva
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="tel:+917093902808"
+              className="group flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-card/60 border border-border/50 hover:border-primary/50 hover:bg-card/80 transition-all"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="font-semibold text-base">Phone</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  +91 70939 02808
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <Card className="scroll-reveal bg-card/60 backdrop-blur-sm border-border/50 max-w-2xl mx-auto">
+            <CardHeader>
+              <CardTitle className="text-xl">Send a message</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form
+                className="space-y-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const form = e.currentTarget as HTMLFormElement;
+                  const name = (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
+                  const email = (form.elements.namedItem("email") as HTMLInputElement)?.value || "";
+                  const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value || "";
+                  const subject = encodeURIComponent(`Hello from ${name || "your website"}`);
+                  const body = encodeURIComponent(
+                    `${message}\n\n— ${name}${email ? ` (${email})` : ""}`
+                  );
+                  window.location.href = `mailto:sunilravva@gmail.com?subject=${subject}&body=${body}`;
+                }}
+              >
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="text-sm font-medium block mb-1.5">
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="Your name"
+                      className="h-11 bg-background/50 border-border/60 rounded-lg"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="text-sm font-medium block mb-1.5">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="you@example.com"
+                      className="h-11 bg-background/50 border-border/60 rounded-lg"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className="text-sm font-medium block mb-1.5">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    placeholder="Tell me a bit about what you're working on…"
+                    className="w-full bg-background/50 border border-border/60 rounded-lg px-3 py-2.5 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 resize-none"
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="rounded-full h-12 px-8 gap-2 w-full sm:w-auto"
+                >
+                  <Mail className="w-4 h-4" /> Send Message
+                </Button>
+                <p className="text-xs text-muted-foreground">
+                  This will open your email client with the message pre-filled.
+                </p>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* CTA */}
       <section
         id="cta"
@@ -659,6 +986,19 @@ export default function LandingPage() {
                 className="hover:text-primary transition-colors flex items-center gap-2"
               >
                 <BookOpen className="w-4 h-4" /> Newsletter
+              </a>
+              <a
+                href="/sunil-ravva-resume.pdf"
+                download
+                className="hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <Download className="w-4 h-4" /> Resume
+              </a>
+              <a
+                href="#contact"
+                className="hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <Mail className="w-4 h-4" /> Contact
               </a>
             </div>
 
