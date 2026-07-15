@@ -160,13 +160,59 @@ const AWARDS = [
   },
 ];
 
+function WelcomeToast() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("welcomeToastShown")) return;
+    const showTimer = setTimeout(() => {
+      setVisible(true);
+      sessionStorage.setItem("welcomeToastShown", "1");
+    }, 1500);
+    return () => clearTimeout(showTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const hideTimer = setTimeout(() => setVisible(false), 7000);
+    return () => clearTimeout(hideTimer);
+  }, [visible]);
+
+  return (
+    <div
+      role="status"
+      className={`fixed bottom-6 right-6 z-[60] max-w-[300px] rounded-xl border border-border/60 bg-card/95 backdrop-blur-sm p-4 shadow-lg transition-all duration-500 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
+      }`}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <p className="text-sm font-medium leading-snug">
+          Glad you want to know more about me. Welcome!
+        </p>
+        <button
+          aria-label="Close"
+          onClick={() => setVisible(false)}
+          className="shrink-0 text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <p className="text-sm text-muted-foreground mt-1.5">
+        Feel free to look around and reach out.
+      </p>
+    </div>
+  );
+}
+
 export default function LandingPage() {
   useScrollReveal();
   const [selectedAward, setSelectedAward] = useState<typeof AWARDS[0] | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
-      {/* Ambient glows */}
+      <WelcomeToast />
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[-15%] right-[-10%] w-[45%] h-[45%] rounded-full bg-primary/8 blur-[140px] animate-drift-a" />
         <div className="absolute bottom-[-15%] left-[-10%] w-[45%] h-[45%] rounded-full bg-blue-500/5 blur-[140px] animate-drift-b" />
@@ -317,7 +363,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <AnimatedStat value={19} suffix="+" label="Years Experience" delay={0} />
             <AnimatedStat value={8000} suffix="+" label="LinkedIn Followers" delay={120} />
-            <AnimatedStat value={1600} suffix="+" label="Newsletter Subscribers" delay={240} />
+            <AnimatedStat value={1500} suffix="+" label="Newsletter Subscribers" delay={240} />
             <AnimatedStat value={70} suffix="+" label="Architects Trained" delay={360} />
           </div>
 
@@ -631,7 +677,7 @@ export default function LandingPage() {
                   {[
                     {
                       icon: <BookOpen className="w-4 h-4 text-primary" />,
-                      text: "Publishes a weekly newsletter — Build Better. Think Broader. — to 1,600+ product leaders.",
+                      text: "Publishes a weekly newsletter — Build Better. Think Broader. — to 1,500+ product leaders.",
                     },
                     {
                       icon: <Users className="w-4 h-4 text-primary" />,
@@ -875,7 +921,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <CardTitle className="text-2xl">1,600+</CardTitle>
+                <CardTitle className="text-2xl">1,500+</CardTitle>
                 <p className="text-sm font-semibold text-foreground/90">
                   Newsletter subscribers
                 </p>
@@ -969,7 +1015,7 @@ export default function LandingPage() {
               Let&apos;s Build Something That Matters.
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join 1,600+ product leaders and fintech innovators getting weekly
+              Join 1,500+ product leaders and fintech innovators getting weekly
               insights on building scalable, human-centered financial products.
             </p>
 
