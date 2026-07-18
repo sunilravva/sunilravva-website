@@ -1128,29 +1128,20 @@ export default function LandingPage() {
               insights on building scalable, human-centered financial products.
             </p>
 
-            <form
-              className="max-w-md mx-auto flex flex-col sm:flex-row gap-3"
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.open(
-                  "https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/",
-                  "_blank",
-                  "noopener,noreferrer"
-                );
-              }}
+            <a
+              href="https://www.linkedin.com/newsletters/build-better-think-broader-7352652967512084481/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
             >
-              <Input
-                type="email"
-                placeholder="name@example.com"
-                className="h-12 bg-background/50 border-border/60 text-base rounded-full px-6 focus-visible:ring-primary/50 flex-1"
-              />
               <Button
-                type="submit"
-                className="h-12 rounded-full px-8 shrink-0 font-semibold"
+                type="button"
+                className="h-12 rounded-full px-8 font-semibold gap-2"
               >
-                Subscribe
+                <Linkedin className="w-4 h-4" />
+                Subscribe on LinkedIn
               </Button>
-            </form>
+            </a>
             <p className="text-sm text-muted-foreground">
               Subscribe to &quot;Build Better. Think Broader.&quot; on LinkedIn — weekly
               insights, zero spam.
@@ -1322,7 +1313,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="py-10 border-t border-border/40 bg-background z-10 relative">
         <div className="container mx-auto px-6 max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">
                 SR
@@ -1330,7 +1321,7 @@ export default function LandingPage() {
               <span className="font-semibold text-sm">Sunil Ravva</span>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-wrap justify-items-center lg:justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
               <a
                 href="https://www.linkedin.com/in/sunilravva"
                 target="_blank"
