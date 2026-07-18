@@ -431,7 +431,7 @@ export default function LandingPage() {
                   Currently leading data product initiatives at Lloyds
                   Technology Centre India, serving millions of customers across
                   the UK banking ecosystem. I own vision, strategy, and roadmap
-                  for data products spanning retail and group functions —
+                  for data products spanning retail and group functions -
                   balancing regulatory needs, data quality, and
                   speed-to-market.
                 </p>
@@ -439,7 +439,7 @@ export default function LandingPage() {
               <div className="scroll-reveal delay-1 space-y-4">
                 <h3 className="text-2xl font-semibold">The Difference</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  What sets me apart: I don&apos;t just manage products — I
+                  What sets me apart: I don&apos;t just manage products - I
                   architect sustainable systems. My approach blends deep
                   technical acumen with business strategy, ensuring every
                   decision drives measurable outcomes. From AI-driven features
@@ -559,7 +559,7 @@ export default function LandingPage() {
                       tag: "Product",
                     },
                     {
-                      name: "Google Cloud — Professional Cloud Architect",
+                      name: "Google Cloud - Professional Cloud Architect",
                       issuer: "Google Cloud",
                       tag: "Google",
                     },
@@ -629,7 +629,7 @@ export default function LandingPage() {
                     },
                     {
                       company: "HSBC",
-                      role: "Associate Lead Architect / Head — Practices & Innovation",
+                      role: "Associate Lead Architect / Head - Practices & Innovation",
                       dates: "May 2015 – Jul 2022",
                     },
                     {
@@ -677,7 +677,7 @@ export default function LandingPage() {
                   {[
                     {
                       icon: <BookOpen className="w-4 h-4 text-primary" />,
-                      text: "Publishes a weekly newsletter — Build Better. Think Broader. — to 1,500+ product leaders.",
+                      text: "Publishes a weekly newsletter - Build Better. Think Broader, to 1,600+ product leaders.",
                     },
                     {
                       icon: <Users className="w-4 h-4 text-primary" />,
@@ -747,7 +747,7 @@ export default function LandingPage() {
                 icon: <Cpu className="w-6 h-6" />,
                 title: "Financial Innovation & Transformation",
                 body: "Digital transformation leadership in banking & fintech. Customer Data Platform (CDP) strategy & deployment. Proven success with Fortune 500 & high-growth fintechs. Financial crime risk & threat mitigation expertise.",
-                tags: ["CDP Strategy", "Digital Transformation", "Financial Crime Risk"],
+                tags: ["Data Strategy", "Digital Transformation", "Financial Crime Risk"],
                 delay: "delay-2",
               },
               {
@@ -910,7 +910,7 @@ export default function LandingPage() {
                   <span className="text-foreground font-medium">
                     Hyderabad, Pune and UK locations
                   </span>{" "}
-                  during my time at HSBC — including Train-the-Trainer and
+                  during my time at HSBC - including Train-the-Trainer and
                   Enterprise Engineer Programme cohorts.
                 </p>
               </CardContent>
@@ -921,7 +921,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <CardTitle className="text-2xl">1,500+</CardTitle>
+                <CardTitle className="text-2xl">1,600+</CardTitle>
                 <p className="text-sm font-semibold text-foreground/90">
                   Newsletter subscribers
                 </p>
@@ -959,7 +959,7 @@ export default function LandingPage() {
               <CardContent>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Built and led innovation communities at HSBC driving 50+
-                  strategic initiatives — fintech alliances, hackathons and
+                  strategic initiatives - fintech alliances, hackathons and
                   enterprise idea management.
                 </p>
               </CardContent>
@@ -1015,7 +1015,7 @@ export default function LandingPage() {
               Let&apos;s Build Something That Matters.
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join 1,500+ product leaders and fintech innovators getting weekly
+              Join 1,600+ product leaders and fintech innovators getting weekly
               insights on building scalable, human-centered financial products.
             </p>
 
@@ -1064,7 +1064,7 @@ export default function LandingPage() {
               Contact Sunil
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The fastest ways to reach me — pick whichever you prefer.
+              The fastest ways to reach me - pick whichever you prefer.
             </p>
           </div>
 
