@@ -787,7 +787,7 @@ export default function LandingPage() {
                   {[
                     {
                       icon: <Coffee className="w-4 h-4 text-primary" />,
-                      text: "Best ideas usually arrive between the second cup of Tea and a long walk.",
+                      text: "Best ideas usually arrive between the second cup of coffee and a long walk.",
                     },
                     {
                       icon: <Plane className="w-4 h-4 text-primary" />,
@@ -1318,14 +1318,14 @@ export default function LandingPage() {
               <span className="font-semibold text-sm">Sunil Ravva</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-wrap justify-items-center lg:justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-wrap justify-items-center lg:justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
               <a
                 href="https://www.linkedin.com/in/sunilravva"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors flex items-center gap-2"
               >
-                <Linkedin className="w-4 h-4" /> linkedin.com/in/sunilravva
+                <Linkedin className="w-4 h-4" /> LinkedIn
               </a>
               <a
                 href="mailto:sunilravva@gmail.com"
@@ -1347,12 +1347,6 @@ export default function LandingPage() {
                 className="hover:text-primary transition-colors flex items-center gap-2"
               >
                 <Download className="w-4 h-4" /> Resume
-              </a>
-              <a
-                href="#contact"
-                className="hover:text-primary transition-colors flex items-center gap-2"
-              >
-                <Mail className="w-4 h-4" /> Contact
               </a>
             </div>
 
