@@ -787,7 +787,7 @@ export default function LandingPage() {
                   {[
                     {
                       icon: <Coffee className="w-4 h-4 text-primary" />,
-                      text: "Best ideas usually arrive between the second cup of coffee and a long walk.",
+                      text: "Best ideas usually arrive between the second cup of Tea and a long walk.",
                     },
                     {
                       icon: <Plane className="w-4 h-4 text-primary" />,
