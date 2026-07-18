@@ -23,10 +23,17 @@ import {
   Phone,
   Instagram,
   CalendarCheck,
+  Menu,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 function useScrollReveal() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,6 +56,75 @@ function useScrollReveal() {
   }, []);
 
   return containerRef;
+}
+
+const HEADLINE_SEGMENTS: { text: string; gradient?: boolean }[] = [
+  { text: "Architecting the " },
+  { text: "Future", gradient: true },
+  { text: " of Financial Technology." },
+];
+
+function TypewriterHeadline() {
+  const fullLength = HEADLINE_SEGMENTS.reduce((n, s) => n + s.text.length, 0);
+  const [typed, setTyped] = useState(0);
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) {
+      setTyped(fullLength);
+      setDone(true);
+      return;
+    }
+
+    const startDelay = 250; // lines up with hero-rise-2's own fade-in delay
+    const perChar = 28; // ms per character — brisk, not gimmicky
+    let i = 0;
+    let interval: ReturnType<typeof setInterval>;
+
+    const timeout = setTimeout(() => {
+      interval = setInterval(() => {
+        i++;
+        setTyped(i);
+        if (i >= fullLength) {
+          clearInterval(interval);
+          setDone(true);
+        }
+      }, perChar);
+    }, startDelay);
+
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
+  }, [fullLength]);
+
+  let remaining = typed;
+  return (
+    <>
+      {HEADLINE_SEGMENTS.map((seg, idx) => {
+        const shown = seg.text.slice(0, Math.max(0, remaining));
+        remaining -= seg.text.length;
+        if (!shown) return null;
+        return seg.gradient ? (
+          <span
+            key={idx}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300"
+          >
+            {shown}
+          </span>
+        ) : (
+          <span key={idx}>{shown}</span>
+        );
+      })}
+      <span
+        className={`typewriter-cursor${done ? " typewriter-cursor-idle" : ""}`}
+        aria-hidden="true"
+      />
+    </>
+  );
 }
 
 function AnimatedStat({
@@ -276,6 +352,40 @@ export default function LandingPage() {
                 <span className="hidden sm:inline">Contact Sunil</span>
               </Button>
             </a>
+
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden"
+                  aria-label="Open menu"
+                >
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-72">
+                <nav className="flex flex-col gap-1 mt-10">
+                  {[
+                    { href: "#about", label: "About" },
+                    { href: "#background", label: "Background" },
+                    { href: "#expertise", label: "Expertise" },
+                    { href: "#content", label: "Insights" },
+                    { href: "#mentorship", label: "Mentorship" },
+                    { href: "#contact", label: "Contact" },
+                  ].map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <a
+                        href={link.href}
+                        className="text-base font-medium text-foreground py-3 px-2 rounded-md hover:bg-primary/10 hover:text-primary transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </SheetClose>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </nav>
@@ -290,12 +400,11 @@ export default function LandingPage() {
                 <span>Build Better. Think Broader.</span>
               </div>
 
-              <h1 className="hero-rise hero-rise-2 text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05]">
-                Architecting the{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300">
-                  Future
-                </span>{" "}
-                of Financial Technology.
+              <h1
+                className="hero-rise hero-rise-2 text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05]"
+                aria-label="Architecting the Future of Financial Technology."
+              >
+                <TypewriterHeadline />
               </h1>
 
               <p className="hero-rise hero-rise-3 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-xl">
