@@ -24,6 +24,7 @@ import {
   Instagram,
   CalendarCheck,
   Menu,
+  Tv,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -785,14 +786,6 @@ export default function LandingPage() {
                 <ul className="space-y-4">
                   {[
                     {
-                      icon: <BookOpen className="w-4 h-4 text-primary" />,
-                      text: "Publishes a weekly newsletter - Build Better. Think Broader, to 1,600+ product leaders.",
-                    },
-                    {
-                      icon: <Users className="w-4 h-4 text-primary" />,
-                      text: "Has personally trained 70+ architects across India and the UK.",
-                    },
-                    {
                       icon: <Coffee className="w-4 h-4 text-primary" />,
                       text: "Best ideas usually arrive between the second cup of coffee and a long walk.",
                     },
@@ -801,8 +794,12 @@ export default function LandingPage() {
                       text: "Loves spending time exploring new cultures with family on weekend trips.",
                     },
                     {
-                      icon: <Music className="w-4 h-4 text-primary" />,
-                      text: "Unwinds with classic Telugu cinema and the occasional impromptu cricket match.",
+                      icon: <Cpu className="w-4 h-4 text-primary" />,
+                      text: "Loves vibe-coding side projects and tinkering with the latest AI tools, just for the fun of it.",
+                    },
+                    {
+                      icon: <Tv className="w-4 h-4 text-primary" />,
+                      text: "Big fan of action movies and crime thrillers like CID and Crime Patrol.",
                     },
                   ].map((fact, i) => (
                     <li
