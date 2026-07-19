@@ -631,6 +631,20 @@ export default function LandingPage() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-5">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-start justify-between gap-2">
+                    <h4 className="font-semibold text-base">
+                      Chief Product &amp; AI-Driven Strategy Officer Programme
+                    </h4>
+                    <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-md bg-primary/10 text-primary font-semibold whitespace-nowrap mt-0.5">
+                      In Progress
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    IIM Kozhikode, with Kellogg Executive Education · Started
+                    2026
+                  </p>
+                </div>
                 <div className="border-l-2 border-primary/40 pl-4">
                   <h4 className="font-semibold text-base">
                     Master of Computer Applications (MCA)
@@ -787,7 +801,7 @@ export default function LandingPage() {
                   {[
                     {
                       icon: <Coffee className="w-4 h-4 text-primary" />,
-                      text: "Best ideas usually arrive between the second cup of Tea and a long walk.",
+                      text: "Best ideas usually arrive between the second cup of coffee and a long walk.",
                     },
                     {
                       icon: <Plane className="w-4 h-4 text-primary" />,
@@ -1064,7 +1078,7 @@ export default function LandingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Built and led innovation communities driving 50+
+                  Built and led innovation communities at HSBC driving 50+
                   strategic initiatives - fintech alliances, hackathons and
                   enterprise idea management.
                 </p>
