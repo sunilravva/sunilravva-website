@@ -1078,7 +1078,7 @@ export default function LandingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Built and led innovation communities at HSBC driving 50+
+                  Built and led innovation communities driving 50+
                   strategic initiatives - fintech alliances, hackathons and
                   enterprise idea management.
                 </p>
