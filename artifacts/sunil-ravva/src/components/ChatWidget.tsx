@@ -89,11 +89,20 @@ export default function ChatWidget() {
             "bg-card border border-border/60 rounded-2xl shadow-2xl flex flex-col overflow-hidden",
           )}
         >
-          <div className="px-4 py-3 border-b border-border/50 bg-secondary/20">
-            <p className="font-semibold text-sm">Ask about Sunil</p>
-            <p className="text-xs text-muted-foreground">
-              Answers are grounded in his real background.
-            </p>
+          <div className="px-4 py-3 border-b border-border/50 bg-secondary/20 flex items-start justify-between gap-3">
+            <div>
+              <p className="font-semibold text-sm">Ask about Sunil</p>
+              <p className="text-xs text-muted-foreground">
+                Answers are grounded in his real background.
+              </p>
+            </div>
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close chat"
+              className="text-muted-foreground hover:text-foreground transition-colors shrink-0 mt-0.5"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
