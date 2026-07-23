@@ -134,6 +134,10 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
   }
 
   if (!upstream.ok) {
+    const errorBody = await upstream.text();
+    console.error(
+      `Anthropic API error: status=${upstream.status} body=${errorBody}`,
+    );
     return new Response(
       JSON.stringify({ error: "The assistant is temporarily unavailable." }),
       { status: 502, headers },
