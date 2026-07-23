@@ -1,6 +1,6 @@
 # sunilravva.com
 
-Personal portfolio website for **Sunil Ravva** — VP Product & Innovation Leader. A single-page, dark-themed site showcasing career history, certifications, awards, and thought leadership, with a grounded AI chat assistant visitors can ask questions to directly.
+Personal portfolio website for **Sunil Ravva** - VP Product & Innovation Leader. A single-page, dark-themed site showcasing career history, certifications, awards, and thought leadership, with a grounded AI chat assistant visitors can ask questions to directly.
 
 **Live site:** [sunilravva.com](https://sunilravva.com)
 
@@ -22,9 +22,9 @@ A few other folders (`artifacts/api-server`, `artifacts/mockup-sandbox`, `lib/`)
 ## Architecture at a glance
 
 - **Frontend**: React 19 + TypeScript, built with Vite, styled with Tailwind CSS and shadcn/ui components, animated with Framer Motion
-- **Hosting**: Cloudflare Workers — serves the built static site *and* runs a small backend, from a single deployment
+- **Hosting**: Cloudflare Workers - serves the built static site *and* runs a small backend, from a single deployment
 - **Chatbot backend**: The Worker exposes `POST /api/chat`, which calls Anthropic's API (Claude Haiku) server-side with a system prompt grounded in Sunil's real CV, so the assistant can only answer from real facts, never invented ones
-- **CI/CD**: GitHub Actions — every push to `main` installs dependencies, builds the frontend, and deploys the Worker to Cloudflare automatically, including securely re-uploading the Anthropic API key as a Cloudflare secret on every deploy
+- **CI/CD**: GitHub Actions - every push to `main` installs dependencies, builds the frontend, and deploys the Worker to Cloudflare automatically, including securely re-uploading the Anthropic API key as a Cloudflare secret on every deploy
 
 See `ARCHITECTURE.md` for a visual diagram and a deeper breakdown of each piece.
 
@@ -78,7 +78,7 @@ For the automated deploy workflow (`.github/workflows/deploy.yml`) to work, thes
 
 ## Important operational note
 
-Cloudflare's native Git integration (dashboard-based auto-deploy on push) is **intentionally disconnected** for this project. It has a known issue where it silently wipes Worker secrets on every deploy. GitHub Actions is the sole deploy path — don't reconnect the native integration without re-checking that behavior first.
+Cloudflare's native Git integration (dashboard-based auto-deploy on push) is **intentionally disconnected** for this project. It has a known issue where it silently wipes Worker secrets on every deploy. GitHub Actions is the sole deploy path - don't reconnect the native integration without re-checking that behavior first.
 
 ---
 
