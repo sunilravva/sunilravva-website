@@ -74,3 +74,9 @@ onlyBuiltDependencies:
   - msw
   - unrs-resolver
 
+allowBuilds:
+  '@swc/core': true
+  esbuild: true
+  msw: true
+  unrs-resolver: true
+
