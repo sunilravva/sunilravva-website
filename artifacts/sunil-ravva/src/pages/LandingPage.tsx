@@ -1,4 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
+import {
+  RECOGNITION_ITEMS,
+  FEATURED_RECOGNITION_COUNT,
+  type RecognitionItem,
+} from "@/data/recognition";
 import {
   ArrowRight,
   ChevronDown,
@@ -198,44 +204,7 @@ function AnimatedStat({
   );
 }
 
-const AWARDS = [
-  {
-    img: "/images/shine-award.png",
-    title: "HSBC Shine Award",
-    subtitle: "HSBC 2019",
-    description: "Winner of the HSBC Shine Award at the HTI Annual Awards & Celebrations (TRANSCEND 2020), recognising exceptional performance and impact.",
-    url: "https://www.youtube.com/watch?v=5i7NeuvIbJ8",
-    linkLabel: "Watch on YouTube",
-    isVideo: true,
-  },
-  {
-    img: "/images/award-belongs-her.png",
-    title: "1st Architect of the Year",
-    subtitle: "HSBC 2019",
-    description: "Recognised as the first-ever Architect of the Year at HSBC, awarded for excellence in technical architecture and product innovation.",
-    url: "https://www.linkedin.com/pulse/award-belongs-her-sunil-ravva/",
-    linkLabel: "Read Article",
-    isVideo: false,
-  },
-  {
-    img: "/images/award-fintech-star.png",
-    title: "Rising Fintech Star",
-    subtitle: "BankingTech Awards 2020",
-    description: "Highly Commended at the prestigious BankingTech Awards 2020 for outstanding contributions to financial technology innovation.",
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:6743043053818257408/",
-    linkLabel: "View on LinkedIn",
-    isVideo: false,
-  },
-  {
-    img: "/images/lloyds-recognition.png",
-    title: "Certificate of Recognition",
-    subtitle: "Lloyds Technology Centre 2026",
-    description: "Recognised for driving Data & AI product excellence at Lloyds Technology Centre, accelerating delivery and shaping customer-first data products.",
-    url: "https://www.linkedin.com/posts/sunilravva_lloydstechnologycentre-bestplacestowork-recognitionmatters-activity-7353052955920510976-3n5b",
-    linkLabel: "View on LinkedIn",
-    isVideo: false,
-  },
-];
+
 
 function WelcomeToast() {
   const [visible, setVisible] = useState(false);
@@ -285,7 +254,7 @@ function WelcomeToast() {
 
 export default function LandingPage() {
   useScrollReveal();
-  const [selectedAward, setSelectedAward] = useState<typeof AWARDS[0] | null>(null);
+  const [selectedAward, setSelectedAward] = useState<RecognitionItem | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
@@ -565,7 +534,7 @@ export default function LandingPage() {
                 Recognition
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {AWARDS.map((item) => (
+                {RECOGNITION_ITEMS.slice(0, FEATURED_RECOGNITION_COUNT).map((item) => (
                   <button
                     key={item.title}
                     onClick={() => setSelectedAward(item)}
@@ -595,6 +564,18 @@ export default function LandingPage() {
                   </button>
                 ))}
               </div>
+
+              {RECOGNITION_ITEMS.length > FEATURED_RECOGNITION_COUNT && (
+                <div className="flex justify-center mt-8">
+                  <Link
+                    href="/recognition"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                  >
+                    Show more recognition
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
