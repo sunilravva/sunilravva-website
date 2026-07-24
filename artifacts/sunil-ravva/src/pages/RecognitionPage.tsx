@@ -77,14 +77,16 @@ export default function RecognitionPage() {
           onClick={() => setSelected(null)}
         >
           <div
-            className="bg-card border border-border/60 rounded-2xl max-w-md w-full overflow-hidden"
+            className="bg-card border border-border/60 rounded-2xl max-w-2xl w-full overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={selected.img}
-              alt={selected.title}
-              className="w-full aspect-square object-cover"
-            />
+            <div className="w-full max-h-[60vh] flex items-center justify-center bg-black/20 overflow-hidden">
+              <img
+                src={selected.img}
+                alt={selected.title}
+                className="max-w-full max-h-[60vh] object-contain"
+              />
+            </div>
             <div className="p-6 space-y-3">
               <div>
                 <h3 className="text-xl font-bold">{selected.title}</h3>
