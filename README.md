@@ -81,6 +81,7 @@ For the automated deploy workflow (`.github/workflows/deploy.yml`) to work, thes
 Cloudflare's native Git integration (dashboard-based auto-deploy on push) is **intentionally disconnected** for this project. It has a known issue where it silently wipes Worker secrets on every deploy. GitHub Actions is the sole deploy path - don't reconnect the native integration without re-checking that behavior first.
 
 ---
+a
 
 ## Content
 
