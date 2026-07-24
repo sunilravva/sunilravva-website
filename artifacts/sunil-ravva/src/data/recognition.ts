@@ -18,6 +18,11 @@ export type RecognitionItem = {
 // `url`/`description` needed, and leave `featured` off entirely.
 export const RECOGNITION_ITEMS: RecognitionItem[] = [
   {
+    img: "/images/lloyds-enabling-services-2026.jpg",
+    title: "Enabling Services – Recognition of Excellence",
+    subtitle: "Lloyds Technology Centre, July 2026",
+  },
+  {
     img: "/images/lloyds-recognition.png",
     title: "Certificate of Recognition",
     featured: true,
