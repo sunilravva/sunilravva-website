@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import {
   RECOGNITION_ITEMS,
-  FEATURED_RECOGNITION_COUNT,
   type RecognitionItem,
 } from "@/data/recognition";
 import {
@@ -534,7 +533,7 @@ export default function LandingPage() {
                 Recognition
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {RECOGNITION_ITEMS.slice(0, FEATURED_RECOGNITION_COUNT).map((item) => (
+                {RECOGNITION_ITEMS.filter((item) => item.featured).map((item) => (
                   <button
                     key={item.title}
                     onClick={() => setSelectedAward(item)}
@@ -565,7 +564,7 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              {RECOGNITION_ITEMS.length > FEATURED_RECOGNITION_COUNT && (
+              {RECOGNITION_ITEMS.length > RECOGNITION_ITEMS.filter((item) => item.featured).length && (
                 <div className="flex justify-center mt-8">
                   <Link
                     href="/recognition"
@@ -1360,14 +1359,14 @@ export default function LandingPage() {
           onClick={() => setSelectedAward(null)}
         >
           <div
-            className="relative bg-secondary/90 border border-border/60 rounded-2xl overflow-hidden max-w-md w-full shadow-2xl animate-in zoom-in-95 duration-200"
+            className="relative bg-secondary/90 border border-border/60 rounded-2xl overflow-hidden max-w-2xl w-full shadow-2xl animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="aspect-video overflow-hidden">
+            <div className="w-full max-h-[60vh] flex items-center justify-center bg-black/20 overflow-hidden">
               <img
                 src={selectedAward.img}
                 alt={selectedAward.title}
-                className="w-full h-full object-cover"
+                className="max-w-full max-h-[60vh] object-contain"
               />
             </div>
             <div className="p-6 space-y-3">
