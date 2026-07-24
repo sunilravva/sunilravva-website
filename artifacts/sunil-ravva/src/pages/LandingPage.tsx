@@ -305,12 +305,6 @@ export default function LandingPage() {
             >
               Mentorship
             </a>
-            <a
-              href="#contact"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors hidden md:block"
-            >
-              Contact
-            </a>
             <a href="#contact">
               <Button
                 variant="outline"
@@ -341,7 +335,6 @@ export default function LandingPage() {
                     { href: "#expertise", label: "Expertise" },
                     { href: "#content", label: "Insights" },
                     { href: "#mentorship", label: "Mentorship" },
-                    { href: "#contact", label: "Contact" },
                   ].map((link) => (
                     <SheetClose asChild key={link.href}>
                       <a
