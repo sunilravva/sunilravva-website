@@ -6,16 +6,21 @@ export type RecognitionItem = {
   url?: string;
   linkLabel?: string;
   isVideo?: boolean;
+  featured?: boolean;
 };
 
-// Ordered newest to oldest. The first 4 are featured on the homepage.
-// Add new awards/certificates anywhere below — they'll automatically
-// show up on the full "/recognition" page. New entries only need
-// `img` and `title` (subtitle optional); no `url`/`description` needed.
+// Ordered newest to oldest. Items with `featured: true` show on the
+// homepage — this is independent of their position in the list below,
+// so the full list can stay in date order while the homepage shows a
+// specifically chosen set. Add new awards/certificates anywhere below;
+// they'll automatically show up on the full "/recognition" page.
+// New entries only need `img` and `title` (subtitle optional); no
+// `url`/`description` needed, and leave `featured` off entirely.
 export const RECOGNITION_ITEMS: RecognitionItem[] = [
   {
     img: "/images/lloyds-recognition.png",
     title: "Certificate of Recognition",
+    featured: true,
     subtitle: "Lloyds Technology Centre 2026",
     description:
       "Recognised for driving Data & AI product excellence at Lloyds Technology Centre, accelerating delivery and shaping customer-first data products.",
@@ -26,6 +31,7 @@ export const RECOGNITION_ITEMS: RecognitionItem[] = [
   {
     img: "/images/award-fintech-star.png",
     title: "Rising Fintech Star",
+    featured: true,
     subtitle: "BankingTech Awards 2020",
     description:
       "Highly Commended at the prestigious BankingTech Awards 2020 for outstanding contributions to financial technology innovation.",
@@ -56,6 +62,7 @@ export const RECOGNITION_ITEMS: RecognitionItem[] = [
   {
     img: "/images/shine-award.png",
     title: "HSBC Shine Award",
+    featured: true,
     subtitle: "HSBC 2019",
     description:
       "Winner of the HSBC Shine Award at the HTI Annual Awards & Celebrations (TRANSCEND 2020), recognising exceptional performance and impact.",
@@ -66,6 +73,7 @@ export const RECOGNITION_ITEMS: RecognitionItem[] = [
   {
     img: "/images/award-belongs-her.png",
     title: "1st Architect of the Year",
+    featured: true,
     subtitle: "HSBC 2019",
     description:
       "Recognised as the first-ever Architect of the Year at HSBC, awarded for excellence in technical architecture and product innovation.",
