@@ -4,7 +4,9 @@
   "main": "./worker/index.ts",
   "assets": {
     "directory": "./artifacts/sunil-ravva/dist/public",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
   },
   "observability": {
     "enabled": false,
