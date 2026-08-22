@@ -254,6 +254,7 @@ function WelcomeToast() {
 export default function LandingPage() {
   useScrollReveal();
   const [selectedAward, setSelectedAward] = useState<RecognitionItem | null>(null);
+  const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
@@ -1238,17 +1239,37 @@ export default function LandingPage() {
             <CardContent>
               <form
                 className="space-y-4"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
                   const form = e.currentTarget as HTMLFormElement;
                   const name = (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
                   const email = (form.elements.namedItem("email") as HTMLInputElement)?.value || "";
                   const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value || "";
-                  const subject = encodeURIComponent(`Hello from ${name || "your website"}`);
-                  const body = encodeURIComponent(
-                    `${message}\n\n— ${name}${email ? ` (${email})` : ""}`
-                  );
-                  window.location.href = `mailto:sunilravva@gmail.com?subject=${subject}&body=${body}`;
+
+                  setContactStatus("sending");
+                  try {
+                    const res = await fetch("https://api.web3forms.com/submit", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json", Accept: "application/json" },
+                      body: JSON.stringify({
+                        access_key: "b663499f-7071-4715-b90a-f5ab90648554",
+                        subject: `New message from ${name || "your website"}`,
+                        from_name: "sunilravva.com contact form",
+                        name,
+                        email,
+                        message,
+                      }),
+                    });
+                    const data = (await res.json()) as { success?: boolean };
+                    if (res.ok && data.success) {
+                      setContactStatus("sent");
+                      form.reset();
+                    } else {
+                      setContactStatus("error");
+                    }
+                  } catch {
+                    setContactStatus("error");
+                  }
                 }}
               >
                 <div className="grid md:grid-cols-2 gap-4">
@@ -1294,13 +1315,35 @@ export default function LandingPage() {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={contactStatus === "sending"}
                   className="rounded-full h-12 px-8 gap-2 w-full sm:w-auto"
                 >
-                  <Mail className="w-4 h-4" /> Send Message
+                  <Mail className="w-4 h-4" />
+                  {contactStatus === "sending" ? "Sending…" : "Send Message"}
                 </Button>
-                <p className="text-xs text-muted-foreground">
-                  This will open your email client with the message pre-filled.
-                </p>
+                {contactStatus === "sent" && (
+                  <p className="text-sm text-emerald-500 font-medium">
+                    Thanks — your message has been sent. I'll get back to you soon.
+                  </p>
+                )}
+                {contactStatus === "error" && (
+                  <p className="text-sm text-destructive">
+                    Something went wrong sending that. Please try again, or{" "}
+                    <a href="mailto:sunilravva@gmail.com" className="underline">
+                      email me directly
+                    </a>{" "}
+                    instead.
+                  </p>
+                )}
+                {contactStatus !== "sent" && contactStatus !== "error" && (
+                  <p className="text-xs text-muted-foreground">
+                    Or email me directly at{" "}
+                    <a href="mailto:sunilravva@gmail.com" className="underline">
+                      sunilravva@gmail.com
+                    </a>
+                    .
+                  </p>
+                )}
               </form>
             </CardContent>
           </Card>
