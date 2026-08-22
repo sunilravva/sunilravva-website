@@ -5,6 +5,7 @@
 
 export interface Env {
   ANTHROPIC_API_KEY: string;
+  CHAT_RATE_LIMITER: RateLimit;
 }
 
 const MODEL = "claude-haiku-4-5-20251001";
@@ -63,9 +64,11 @@ Publishes a weekly LinkedIn newsletter, "Build Better. Think Broader.", to 1,600
 ## How to reach Sunil
 LinkedIn: linkedin.com/in/sunilravva. Email: sunilravva@gmail.com. Resume is downloadable from the site. There's a "Contact" section on the site for direct messages.`;
 
-function corsHeaders(origin: string | null): Record<string, string> {
+const ALLOWED_ORIGIN = "https://sunilravva.com";
+
+function corsHeaders(): Record<string, string> {
   return {
-    "Access-Control-Allow-Origin": origin ?? "*",
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     Vary: "Origin",
@@ -75,8 +78,16 @@ function corsHeaders(origin: string | null): Record<string, string> {
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
 async function handleChat(request: Request, env: Env): Promise<Response> {
-  const origin = request.headers.get("Origin");
-  const headers = { ...corsHeaders(origin), "Content-Type": "application/json" };
+  const headers = { ...corsHeaders(), "Content-Type": "application/json" };
+
+  const clientIp = request.headers.get("CF-Connecting-IP") ?? "unknown";
+  const { success: withinLimit } = await env.CHAT_RATE_LIMITER.limit({ key: clientIp });
+  if (!withinLimit) {
+    return new Response(
+      JSON.stringify({ error: "Too many messages. Please wait a moment and try again." }),
+      { status: 429, headers },
+    );
+  }
 
   let body: unknown;
   try {
@@ -174,7 +185,7 @@ export default {
       if (request.method === "OPTIONS") {
         return new Response(null, {
           status: 204,
-          headers: corsHeaders(request.headers.get("Origin")),
+          headers: corsHeaders(),
         });
       }
       if (request.method === "POST") {
