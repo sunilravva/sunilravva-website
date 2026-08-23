@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ExternalLink, Youtube } from "lucide-react";
 import { RECOGNITION_ITEMS, type RecognitionItem } from "@/data/recognition";
@@ -6,6 +6,49 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 export default function RecognitionPage() {
   const [selected, setSelected] = useState<RecognitionItem | null>(null);
+
+  useEffect(() => {
+    const title = "Awards & Recognition | Sunil Ravva";
+    const description =
+      "A complete record of awards, certifications, and recognitions earned by Sunil Ravva across a 19+ year career in banking, fintech, and enterprise product leadership at Lloyds, HSBC, CloudBees, and more.";
+    const url = "https://sunilravva.com/recognition";
+
+    const prevTitle = document.title;
+    const descriptionTag = document.querySelector('meta[name="description"]');
+    const prevDescription = descriptionTag?.getAttribute("content") ?? "";
+    const ogTitleTag = document.querySelector('meta[property="og:title"]');
+    const prevOgTitle = ogTitleTag?.getAttribute("content") ?? "";
+    const ogDescTag = document.querySelector('meta[property="og:description"]');
+    const prevOgDesc = ogDescTag?.getAttribute("content") ?? "";
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    const prevOgUrl = ogUrlTag?.getAttribute("content") ?? "";
+    const twitterTitleTag = document.querySelector('meta[name="twitter:title"]');
+    const prevTwitterTitle = twitterTitleTag?.getAttribute("content") ?? "";
+    const twitterDescTag = document.querySelector('meta[name="twitter:description"]');
+    const prevTwitterDesc = twitterDescTag?.getAttribute("content") ?? "";
+    const canonicalTag = document.querySelector('link[rel="canonical"]');
+    const prevCanonical = canonicalTag?.getAttribute("href") ?? "";
+
+    document.title = title;
+    descriptionTag?.setAttribute("content", description);
+    ogTitleTag?.setAttribute("content", title);
+    ogDescTag?.setAttribute("content", description);
+    ogUrlTag?.setAttribute("content", url);
+    twitterTitleTag?.setAttribute("content", title);
+    twitterDescTag?.setAttribute("content", description);
+    canonicalTag?.setAttribute("href", url);
+
+    return () => {
+      document.title = prevTitle;
+      descriptionTag?.setAttribute("content", prevDescription);
+      ogTitleTag?.setAttribute("content", prevOgTitle);
+      ogDescTag?.setAttribute("content", prevOgDesc);
+      ogUrlTag?.setAttribute("content", prevOgUrl);
+      twitterTitleTag?.setAttribute("content", prevTwitterTitle);
+      twitterDescTag?.setAttribute("content", prevTwitterDesc);
+      canonicalTag?.setAttribute("href", prevCanonical);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
