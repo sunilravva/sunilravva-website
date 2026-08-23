@@ -43,6 +43,7 @@ export default function RecognitionPage() {
                 <img
                   src={item.img}
                   alt={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 {item.isVideo && (
@@ -84,6 +85,7 @@ export default function RecognitionPage() {
               <img
                 src={selected.img}
                 alt={selected.title}
+                loading="lazy"
                 className="max-w-full max-h-[60vh] object-contain"
               />
             </div>
