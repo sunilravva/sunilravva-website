@@ -18,12 +18,12 @@ export type RecognitionItem = {
 // `url`/`description` needed, and leave `featured` off entirely.
 export const RECOGNITION_ITEMS: RecognitionItem[] = [
   {
-    img: "/images/lloyds-enabling-services-2026.jpg",
+    img: "/images/lloyds-enabling-services-2026.webp",
     title: "Enabling Services – Recognition of Excellence",
     subtitle: "Lloyds Technology Centre, July 2026",
   },
   {
-    img: "/images/lloyds-recognition.png",
+    img: "/images/lloyds-recognition.webp",
     title: "Certificate of Recognition",
     featured: true,
     subtitle: "Lloyds Technology Centre 2026",
@@ -34,7 +34,7 @@ export const RECOGNITION_ITEMS: RecognitionItem[] = [
     isVideo: false,
   },
   {
-    img: "/images/award-fintech-star.png",
+    img: "/images/award-fintech-star.webp",
     title: "Rising Fintech Star",
     featured: true,
     subtitle: "BankingTech Awards 2020",
@@ -45,27 +45,27 @@ export const RECOGNITION_ITEMS: RecognitionItem[] = [
     isVideo: false,
   },
   {
-    img: "/images/hsbc-technologist-of-the-quarter.png",
+    img: "/images/hsbc-technologist-of-the-quarter.webp",
     title: "Technologist of the Quarter",
     subtitle: "HSBC Technology India, 2020",
   },
   {
-    img: "/images/hsbc-pioneer-of-the-quarter.png",
+    img: "/images/hsbc-pioneer-of-the-quarter.webp",
     title: "Pioneer of the Quarter",
     subtitle: "HSBC Technology India, 2020",
   },
   {
-    img: "/images/hsbc-enterprise-engineer-programme.png",
+    img: "/images/hsbc-enterprise-engineer-programme.webp",
     title: "Certified Enterprise Engineer",
     subtitle: "HSBC Enterprise Engineer Programme, 2020",
   },
   {
-    img: "/images/hsbc-external-certification-2020.jpeg",
+    img: "/images/hsbc-external-certification-2020.webp",
     title: "Certificate of Achievement",
     subtitle: "HSBC Technology, external certification, Jan 2020",
   },
   {
-    img: "/images/shine-award.png",
+    img: "/images/shine-award.webp",
     title: "HSBC Shine Award",
     featured: true,
     subtitle: "HSBC 2019",
@@ -76,7 +76,7 @@ export const RECOGNITION_ITEMS: RecognitionItem[] = [
     isVideo: true,
   },
   {
-    img: "/images/award-belongs-her.png",
+    img: "/images/award-belongs-her.webp",
     title: "1st Architect of the Year",
     featured: true,
     subtitle: "HSBC 2019",
@@ -87,27 +87,27 @@ export const RECOGNITION_ITEMS: RecognitionItem[] = [
     isVideo: false,
   },
   {
-    img: "/images/hsbc-architecture-symposium.jpeg",
+    img: "/images/hsbc-architecture-symposium.webp",
     title: "Architecture Symposium India",
     subtitle: "HSBC Zang Jing Ge, 2018",
   },
   {
-    img: "/images/hsbc-architect-trainer.jpeg",
+    img: "/images/hsbc-architect-trainer.webp",
     title: "Architecture Academy Trainer",
     subtitle: "HSBC Zang Jing Ge Academy, 2018",
   },
   {
-    img: "/images/wipro-ess-2013.jpeg",
+    img: "/images/wipro-ess-2013.webp",
     title: "Pioneer – Best Knowledge Contributor",
     subtitle: "Wipro Enterprise Security Solutions, 2013",
   },
   {
-    img: "/images/wipro-feather-in-my-cap-2013.jpeg",
+    img: "/images/wipro-feather-in-my-cap-2013.webp",
     title: "Feather in My Cap",
     subtitle: "Wipro, 2013",
   },
   {
-    img: "/images/wipro-fimc-2011.jpeg",
+    img: "/images/wipro-fimc-2011.webp",
     title: "FIMC Award",
     subtitle: "Wipro, 2011",
   },
