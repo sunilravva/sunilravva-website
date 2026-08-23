@@ -412,7 +412,7 @@ export default function LandingPage() {
             <div className="hero-rise hero-rise-photo w-56 h-56 md:w-72 md:h-72 shrink-0 animate-float">
               <div className="relative w-full h-full rounded-full border-2 border-primary/40 shadow-2xl overflow-hidden group">
                 <img
-                  src="/images/sunil.jpg"
+                  src="/images/sunil.webp"
                   alt="Sunil Ravva"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
@@ -537,6 +537,7 @@ export default function LandingPage() {
                       <img
                         src={item.img}
                         alt={item.title}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       {item.isVideo && (
@@ -929,21 +930,21 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                img: "/images/featured-po-architecture.png",
+                img: "/images/featured-po-architecture.webp",
                 badge: "Product Leadership",
                 title: "Why Product Owners & Architects Must Think as One",
                 url: "https://www.linkedin.com/posts/sunilravva_productandtech-architecturepartnership-poleadership-activity-7353982266626228225-FKs7",
                 delay: "",
               },
               {
-                img: "/images/featured-innovation-backlog.png",
+                img: "/images/featured-innovation-backlog.webp",
                 badge: "Innovation",
                 title: "Innovation Backlog: Architecture Enablers for Product Leaders",
                 url: "https://www.linkedin.com/posts/sunilravva_innovationbacklog-architectureenablers-productleadership-activity-7353249954624102400-S_97",
                 delay: "delay-1",
               },
               {
-                img: "/images/featured-product-innovation.png",
+                img: "/images/featured-product-innovation.webp",
                 badge: "Product Ownership",
                 title: "AI-Augmented Product Ownership",
                 url: "https://www.linkedin.com/posts/sunilravva_productownership-architecture-innovation-activity-7369202579681005568-5NdS",
@@ -961,6 +962,7 @@ export default function LandingPage() {
                   <img
                     src={item.img}
                     alt={item.title}
+                    loading="lazy"
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-75 group-hover:opacity-100"
                   />
                   <div className="absolute top-4 left-4">
@@ -1415,6 +1417,7 @@ export default function LandingPage() {
               <img
                 src={selectedAward.img}
                 alt={selectedAward.title}
+                loading="lazy"
                 className="max-w-full max-h-[60vh] object-contain"
               />
             </div>
