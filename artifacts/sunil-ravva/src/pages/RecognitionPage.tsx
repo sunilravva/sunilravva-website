@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ExternalLink, Youtube } from "lucide-react";
 import { RECOGNITION_ITEMS, type RecognitionItem } from "@/data/recognition";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 export default function RecognitionPage() {
   const [selected, setSelected] = useState<RecognitionItem | null>(null);
@@ -72,62 +73,58 @@ export default function RecognitionPage() {
         </div>
       </main>
 
-      {selected && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-6"
-          onClick={() => setSelected(null)}
-        >
-          <div
-            className="bg-card border border-border/60 rounded-2xl max-w-2xl w-full overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="w-full max-h-[60vh] flex items-center justify-center bg-black/20 overflow-hidden">
-              <img
-                src={selected.img}
-                alt={selected.title}
-                loading="lazy"
-                className="max-w-full max-h-[60vh] object-contain"
-              />
-            </div>
-            <div className="p-6 space-y-3">
-              <div>
-                <h3 className="text-xl font-bold">{selected.title}</h3>
-                {selected.subtitle && (
-                  <p className="text-sm text-primary font-medium mt-0.5">
-                    {selected.subtitle}
+      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+        <DialogContent className="max-w-2xl w-full p-0 overflow-hidden bg-card border-border/60 rounded-2xl gap-0">
+          {selected && (
+            <>
+              <div className="w-full max-h-[60vh] flex items-center justify-center bg-black/20 overflow-hidden">
+                <img
+                  src={selected.img}
+                  alt={selected.title}
+                  loading="lazy"
+                  className="max-w-full max-h-[60vh] object-contain"
+                />
+              </div>
+              <div className="p-6 space-y-3">
+                <div>
+                  <h3 className="text-xl font-bold">{selected.title}</h3>
+                  {selected.subtitle && (
+                    <p className="text-sm text-primary font-medium mt-0.5">
+                      {selected.subtitle}
+                    </p>
+                  )}
+                </div>
+                {selected.description && (
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {selected.description}
                   </p>
                 )}
-              </div>
-              {selected.description && (
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {selected.description}
-                </p>
-              )}
-              {selected.url && (
-                <a
-                  href={selected.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                {selected.url && (
+                  <a
+                    href={selected.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                  >
+                    {selected.isVideo ? (
+                      <Youtube className="w-4 h-4" />
+                    ) : (
+                      <ExternalLink className="w-4 h-4" />
+                    )}
+                    {selected.linkLabel ?? "View"}
+                  </a>
+                )}
+                <button
+                  onClick={() => setSelected(null)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors pt-1"
                 >
-                  {selected.isVideo ? (
-                    <Youtube className="w-4 h-4" />
-                  ) : (
-                    <ExternalLink className="w-4 h-4" />
-                  )}
-                  {selected.linkLabel ?? "View"}
-                </a>
-              )}
-              <button
-                onClick={() => setSelected(null)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors pt-1"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+                  Close
+                </button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

@@ -34,6 +34,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Sheet,
   SheetContent,
@@ -1404,57 +1405,53 @@ export default function LandingPage() {
       </footer>
 
       {/* Recognition Modal */}
-      {selectedAward && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm animate-in fade-in duration-200"
-          onClick={() => setSelectedAward(null)}
-        >
-          <div
-            className="relative bg-secondary/90 border border-border/60 rounded-2xl overflow-hidden max-w-2xl w-full shadow-2xl animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="w-full max-h-[60vh] flex items-center justify-center bg-black/20 overflow-hidden">
-              <img
-                src={selectedAward.img}
-                alt={selectedAward.title}
-                loading="lazy"
-                className="max-w-full max-h-[60vh] object-contain"
-              />
-            </div>
-            <div className="p-6 space-y-3">
-              <div>
-                <h3 className="text-xl font-bold">{selectedAward.title}</h3>
-                <p className="text-sm text-primary font-medium mt-0.5">{selectedAward.subtitle}</p>
+      <Dialog open={!!selectedAward} onOpenChange={(open) => !open && setSelectedAward(null)}>
+        <DialogContent className="max-w-2xl w-full p-0 overflow-hidden bg-secondary/90 border-border/60 rounded-2xl gap-0">
+          {selectedAward && (
+            <>
+              <div className="w-full max-h-[60vh] flex items-center justify-center bg-black/20 overflow-hidden">
+                <img
+                  src={selectedAward.img}
+                  alt={selectedAward.title}
+                  loading="lazy"
+                  className="max-w-full max-h-[60vh] object-contain"
+                />
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">{selectedAward.description}</p>
-              <div className="flex gap-3 pt-2">
-                <a
-                  href={selectedAward.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1"
-                >
-                  <Button className="w-full gap-2 rounded-full">
-                    {selectedAward.isVideo ? (
-                      <svg className="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    ) : (
-                      <ArrowRight className="w-4 h-4" />
-                    )}
-                    {selectedAward.linkLabel}
+              <div className="p-6 space-y-3">
+                <div>
+                  <h3 className="text-xl font-bold">{selectedAward.title}</h3>
+                  <p className="text-sm text-primary font-medium mt-0.5">{selectedAward.subtitle}</p>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">{selectedAward.description}</p>
+                <div className="flex gap-3 pt-2">
+                  <a
+                    href={selectedAward.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <Button className="w-full gap-2 rounded-full">
+                      {selectedAward.isVideo ? (
+                        <svg className="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      ) : (
+                        <ArrowRight className="w-4 h-4" />
+                      )}
+                      {selectedAward.linkLabel}
+                    </Button>
+                  </a>
+                  <Button
+                    variant="outline"
+                    className="rounded-full px-4"
+                    onClick={() => setSelectedAward(null)}
+                  >
+                    Close
                   </Button>
-                </a>
-                <Button
-                  variant="outline"
-                  className="rounded-full px-4"
-                  onClick={() => setSelectedAward(null)}
-                >
-                  Close
-                </Button>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
