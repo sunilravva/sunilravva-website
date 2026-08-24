@@ -448,11 +448,11 @@ export default function LandingPage() {
             </p>
             <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6 md:gap-x-14">
               {[
-                { name: "Lloyds Banking Group", domain: "lloydsbankinggroup.com" },
-                { name: "HSBC", domain: "hsbc.com" },
-                { name: "CloudBees", domain: "cloudbees.com" },
-                { name: "Wipro", domain: "wipro.com" },
-                { name: "TCS", domain: "tcs.com" },
+                { name: "Lloyds Banking Group", logo: "https://www.google.com/s2/favicons?domain=lloydsbankinggroup.com&sz=64" },
+                { name: "HSBC", logo: "/images/logos/hsbc.svg" },
+                { name: "CloudBees", logo: "/images/logos/cloudbees.svg" },
+                { name: "Wipro", logo: "/images/logos/wipro.svg" },
+                { name: "TCS", logo: "/images/logos/tcs.svg" },
               ].map((c) => (
                 <div
                   key={c.name}
@@ -460,7 +460,7 @@ export default function LandingPage() {
                   title={c.name}
                 >
                   <img
-                    src={`https://www.google.com/s2/favicons?domain=${c.domain}&sz=64`}
+                    src={c.logo}
                     alt={`${c.name} logo`}
                     width={28}
                     height={28}
