@@ -436,8 +436,8 @@ export default function LandingPage() {
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <AnimatedStat value={19} suffix="+" label="Years Experience" delay={0} />
-            <AnimatedStat value={8000} suffix="+" label="LinkedIn Followers" delay={120} />
-            <AnimatedStat value={1600} suffix="+" label="Newsletter Subscribers" delay={240} />
+            <AnimatedStat value={8140} suffix="+" label="LinkedIn Followers" delay={120} />
+            <AnimatedStat value={1650} suffix="+" label="Newsletter Subscribers" delay={240} />
             <AnimatedStat value={70} suffix="+" label="Architects Trained" delay={360} />
           </div>
 
