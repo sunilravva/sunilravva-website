@@ -1032,7 +1032,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <CardTitle className="text-2xl">1,600+</CardTitle>
+                <CardTitle className="text-2xl">1,650+</CardTitle>
                 <p className="text-sm font-semibold text-foreground/90">
                   Newsletter subscribers
                 </p>
@@ -1126,7 +1126,7 @@ export default function LandingPage() {
               Let&apos;s Build Something That Matters.
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join 1,600+ product leaders and fintech innovators getting weekly
+              Join 1,650+ product leaders and fintech innovators getting weekly
               insights on building scalable, human-centered financial products.
             </p>
 
