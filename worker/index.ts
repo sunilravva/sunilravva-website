@@ -53,7 +53,7 @@ Google Cloud Certified Architect (Professional Cloud Architect), AWS Solutions A
 - FIMC Award, Wipro, 2011.
 
 ## Publishing and community
-Publishes a weekly LinkedIn newsletter, "Build Better. Think Broader.", to 1,600+ product leaders. Has personally trained 70+ architects across India and the UK. Leads the Product Owner Community at Lloyds and previously led HSBC's Global Innovation Community and Architecture Academy.
+Publishes a weekly LinkedIn newsletter, "Build Better. Think Broader.", to 1,650+ product leaders. Has personally trained 70+ architects across India and the UK. Leads the Product Owner Community at Lloyds and previously led HSBC's Global Innovation Community and Architecture Academy.
 
 ## Personal / fun facts
 - Best ideas usually arrive between the second cup of coffee and a long walk.
