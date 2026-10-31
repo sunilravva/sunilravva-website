@@ -436,8 +436,8 @@ export default function LandingPage() {
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <AnimatedStat value={19} suffix="+" label="Years Experience" delay={0} />
-            <AnimatedStat value={8140} suffix="+" label="LinkedIn Followers" delay={120} />
-            <AnimatedStat value={1650} suffix="+" label="Newsletter Subscribers" delay={240} />
+            <AnimatedStat value={8357} suffix="+" label="LinkedIn Followers" delay={120} />
+            <AnimatedStat value={1700} suffix="+" label="Newsletter Subscribers" delay={240} />
             <AnimatedStat value={70} suffix="+" label="Architects Trained" delay={360} />
           </div>
 
@@ -1032,7 +1032,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-3">
                   <BookOpen className="w-6 h-6" />
                 </div>
-                <CardTitle className="text-2xl">1,650+</CardTitle>
+                <CardTitle className="text-2xl">1,700+</CardTitle>
                 <p className="text-sm font-semibold text-foreground/90">
                   Newsletter subscribers
                 </p>
@@ -1126,7 +1126,7 @@ export default function LandingPage() {
               Let&apos;s Build Something That Matters.
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join 1,650+ product leaders and fintech innovators getting weekly
+              Join 1,700+ product leaders and fintech innovators getting weekly
               insights on building scalable, human-centered financial products.
             </p>
 
